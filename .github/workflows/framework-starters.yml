@@ -1,0 +1,35 @@
+name: Framework Starter Fixtures
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [react, vue, svelte, angular, solid, astro]
+    defaults:
+      run:
+        working-directory: examples/framework-starters/${{ matrix.framework }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: examples/framework-starters/${{ matrix.framework }}/package.json
+      - name: Install fixture dependencies
+        run: npm install
+      - name: Build fixture
+        run: npm run build
