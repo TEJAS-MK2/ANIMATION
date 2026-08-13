@@ -1,0 +1,65 @@
+name: Component submission
+description: Propose a new animation or UI component for the ANIMATION library.
+title: "[Component] "
+labels:
+  - component
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing. Please make sure the component is original or properly licensed before submitting it.
+  - type: input
+    id: name
+    attributes:
+      label: Component name
+      placeholder: Magnetic Button
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Explain what the component does and when it is useful.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Hover / Interaction
+        - Text
+        - Cards
+        - Background
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: demo
+    attributes:
+      label: Demo
+      description: Provide a deployed demo, screenshot, or short recording.
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation
+      description: Summarize the HTML/CSS/JS approach and any dependencies.
+    validations:
+      required: true
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Checklist
+      options:
+        - label: I tested the component on desktop and mobile.
+          required: true
+        - label: I considered keyboard accessibility where applicable.
+          required: true
+        - label: I added reduced-motion behavior for non-essential animation.
+          required: true
+        - label: The contribution contains no tracking, malicious code, or unexpected network requests.
+          required: true
+        - label: I have the right to submit this work under the project license.
+          required: true
