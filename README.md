@@ -21,7 +21,7 @@ The project aims to give developers reusable motion and interface building block
 - Responsive component previews
 - Dedicated component viewer
 - Live customization playground
-- HTML, CSS, JavaScript, React, and Tailwind code tabs where available
+- HTML, CSS, JavaScript, React, and Tailwind source registry
 - One-click code copying
 - Responsive mobile navigation
 - Reduced-motion support
@@ -67,6 +67,9 @@ ANIMATION/
 │   ├── component-shell.js
 │   ├── component-shell.css
 │   └── component examples
+├── frameworks/
+│   ├── component-snippets.js
+│   └── README.md
 ├── templates/
 ├── README.md
 ├── CONTRIBUTING.md
@@ -84,6 +87,10 @@ cd ANIMATION
 ```
 
 Then open `index.html` in a browser or serve the directory with any static HTTP server.
+
+## Framework snippets
+
+The `frameworks/` directory contains reference snippets for all 20 components in HTML, CSS, JavaScript, React, and Tailwind CSS. These snippets are dependency-light and intended to keep framework implementations aligned with the component collection.
 
 ## Contributing
 
@@ -105,8 +112,9 @@ Participation in this project is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUC
 - [x] Code-copy workflow
 - [x] Responsive navigation
 - [x] Reduced-motion support
-- [ ] Complete framework implementation for every component
-- [ ] More customization controls
+- [x] Framework snippet registry for all 20 components
+- [ ] Wire framework snippets directly into the playground
+- [ ] More advanced customization controls
 - [ ] Downloadable component source packages
 - [ ] Larger template collection
 - [ ] Searchable component registry
