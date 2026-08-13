@@ -1,5 +1,8 @@
 const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 
+// Mobile navigation
+const menu=$('.menu');const nav=$('.nav nav');menu?.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-open');nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+
 // Copy-to-clipboard controls
 $$('.copy').forEach(btn=>btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(btn.dataset.code);const old=btn.textContent;btn.textContent='Copied!';setTimeout(()=>btn.textContent=old,1200)}catch{btn.textContent='Select manually'}}));
 
