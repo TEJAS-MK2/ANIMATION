@@ -1,99 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ANIMATION — a free collection of copy-paste web animations, components and templates." />
-  <title>ANIMATION — Motion for the web</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ANIMATION — reusable open-source web animations and UI components.">
+<title>ANIMATION — Motion for the web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise"></div>
-  <header class="nav">
-    <a class="brand" href="#top"><span class="brand-mark">A</span><span>ANIMATION</span></a>
-    <nav>
-      <a href="#library">Library</a>
-      <a href="#templates">Templates</a>
-      <a href="#about">About</a>
-      <a class="github" href="https://github.com/TEJAS-MK2/ANIMATION" target="_blank" rel="noreferrer">GitHub ↗</a>
-    </nav>
-    <button class="menu" aria-label="Open menu">☰</button>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="eyebrow"><span class="pulse"></span> Open source motion library</div>
-      <h1>Make the web<br /><em>move.</em></h1>
-      <p class="hero-copy">Beautiful, reusable animations and UI building blocks. Preview them, copy the code, customize everything, and ship.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#library">Explore library <span>↓</span></a>
-        <a class="button ghost" href="https://github.com/TEJAS-MK2/ANIMATION" target="_blank" rel="noreferrer">View source ↗</a>
-      </div>
-      <div class="hero-stage" aria-label="Animation showcase">
-        <div class="orb orb-a"></div><div class="orb orb-b"></div>
-        <div class="stage-grid"></div>
-        <div class="stage-card tilt-card"><span class="mini-label">01 / Hover</span><strong>Move your cursor.</strong><span class="stage-dot"></span></div>
-        <div class="stage-card float-card"><span class="mini-label">02 / Motion</span><strong>Feel the interface.</strong></div>
-        <div class="stage-card glow-card"><span class="mini-label">03 / Ship</span><strong>Copy. Paste. Create.</strong></div>
-      </div>
-    </section>
-
-    <section class="marquee" aria-hidden="true"><div>REACT · CSS · JAVASCRIPT · MOTION · WEBGL · SVG · TAILWIND · OPEN SOURCE · </div><div>REACT · CSS · JAVASCRIPT · MOTION · WEBGL · SVG · TAILWIND · OPEN SOURCE · </div></section>
-
-    <section class="section" id="library">
-      <div class="section-head"><div><span class="kicker">THE LIBRARY</span><h2>Start with motion.</h2></div><p>Small interactions. Big difference. Every demo below is a real, interactive component.</p></div>
-      <div class="toolbar">
-        <div class="filters" role="tablist" aria-label="Categories">
-          <button class="filter active" data-filter="all">All</button><button class="filter" data-filter="hover">Hover</button><button class="filter" data-filter="text">Text</button><button class="filter" data-filter="cards">Cards</button><button class="filter" data-filter="background">Backgrounds</button>
-        </div>
-        <label class="search"><span>⌕</span><input id="search" placeholder="Search animations..." /></label>
-      </div>
-      <div class="grid" id="componentGrid">
-        <article class="component" data-category="hover" data-name="magnetic button">
-          <div class="demo demo-magnetic"><button class="magnetic">Magnetic button <span>↗</span></button></div>
-          <div class="component-info"><div><h3>Magnetic Button</h3><p>Cursor-reactive movement</p></div><button class="copy" data-code="<button class=\"magnetic\">Magnetic button</button>">Copy</button></div>
-        </article>
-        <article class="component" data-category="cards" data-name="tilt card">
-          <div class="demo"><div class="demo-tilt"><span>03</span><strong>Tilt Card</strong><small>Move across the surface</small></div></div>
-          <div class="component-info"><div><h3>Tilt Card</h3><p>Depth-aware 3D interaction</p></div><button class="copy" data-code="<div class=\"tilt-card\">Tilt content</div>">Copy</button></div>
-        </article>
-        <article class="component" data-category="text" data-name="text reveal">
-          <div class="demo demo-text"><div class="reveal-text">REVEAL<span>↗</span></div></div>
-          <div class="component-info"><div><h3>Text Reveal</h3><p>Staggered entrance animation</p></div><button class="copy" data-code="<h2 class=\"reveal-text\">Your headline</h2>">Copy</button></div>
-        </article>
-        <article class="component" data-category="hover" data-name="spotlight card">
-          <div class="demo spotlight-demo"><div class="spotlight-card"><span>SPOTLIGHT</span><strong>Follow the light.</strong></div></div>
-          <div class="component-info"><div><h3>Spotlight Card</h3><p>Pointer-tracking radial glow</p></div><button class="copy" data-code="<div class=\"spotlight-card\">Follow the light.</div>">Copy</button></div>
-        </article>
-        <article class="component" data-category="background" data-name="aurora background">
-          <div class="demo aurora-demo"><div class="aurora one"></div><div class="aurora two"></div><span> AURORA</span></div>
-          <div class="component-info"><div><h3>Aurora Background</h3><p>Soft animated color field</p></div><button class="copy" data-code="<div class=\"aurora-background\"></div>">Copy</button></div>
-        </article>
-        <article class="component" data-category="text" data-name="scramble text">
-          <div class="demo demo-scramble"><span id="scramble">MOTION / 001</span></div>
-          <div class="component-info"><div><h3>Scramble Text</h3><p>Character morphing effect</p></div><button class="copy" data-code="<span class=\"scramble\">MOTION / 001</span>">Copy</button></div>
-        </article>
-      </div>
-      <div class="empty" id="empty">No components found. Try another search.</div>
-    </section>
-
-    <section class="templates section" id="templates">
-      <div class="section-head"><div><span class="kicker">TEMPLATES</span><h2>More than components.</h2></div><p>Complete starting points for portfolios, landing pages, product sites and experiments.</p></div>
-      <div class="template-grid">
-        <article class="template large"><div class="template-art art-portfolio"><span>PORTFOLIO / 01</span><strong>Creative<br />Portfolio</strong><i></i></div><div class="template-meta"><h3>Creative Portfolio</h3><span>Coming soon</span></div></article>
-        <article class="template"><div class="template-art art-saas"><span>PRODUCT / 02</span><strong>Launch<br />Faster.</strong></div><div class="template-meta"><h3>Modern SaaS</h3><span>Coming soon</span></div></article>
-        <article class="template"><div class="template-art art-docs"><span>DOCS / 03</span><strong>Build with<br />clarity.</strong></div><div class="template-meta"><h3>Developer Docs</h3><span>Coming soon</span></div></article>
-      </div>
-    </section>
-
-    <section class="cta" id="about">
-      <div class="cta-glow"></div><span class="kicker">BUILT TO BE SHARED</span><h2>Your next interface<br /><em>starts here.</em></h2><p>Free to explore. Free to customize. Built in public.</p><a class="button primary" href="https://github.com/TEJAS-MK2/ANIMATION" target="_blank" rel="noreferrer">Contribute on GitHub ↗</a>
-    </section>
-  </main>
-  <footer><span>© 2026 ANIMATION</span><span>Built for the web, by the community.</span><a href="https://github.com/TEJAS-MK2/ANIMATION" target="_blank" rel="noreferrer">GitHub ↗</a></footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<div class="noise"></div>
+<header class="nav"><a class="brand" href="#top"><span class="brand-mark">A</span>ANIMATION</a><nav><a href="#library">Library</a><a href="#templates">Templates</a><a href="#about">About</a><a class="github" href="https://github.com/TEJAS-MK2/ANIMATION">GitHub ↗</a></nav><button class="menu" aria-label="Open menu">☰</button></header>
+<main id="top">
+<section class="hero"><div class="eyebrow"><span class="pulse"></span> Open source motion library</div><h1>Make the web<br><em>move.</em></h1><p class="hero-copy">Beautiful, reusable animations and UI building blocks. Preview them, open their dedicated page, copy the code, customize everything, and ship.</p><div class="hero-actions"><a class="button primary" href="#library">Explore library ↓</a><a class="button ghost" href="https://github.com/TEJAS-MK2/ANIMATION">View source ↗</a></div><div class="hero-stage"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="stage-grid"></div><div class="stage-card tilt-card"><span class="mini-label">01 / Hover</span><strong>Move your cursor.</strong></div><div class="stage-card float-card"><span class="mini-label">02 / Motion</span><strong>Feel the interface.</strong></div><div class="stage-card glow-card"><span class="mini-label">03 / Ship</span><strong>Copy. Paste. Create.</strong></div></div></section>
+<section class="marquee" aria-hidden="true"><div>REACT · CSS · JAVASCRIPT · MOTION · WEBGL · SVG · TAILWIND · OPEN SOURCE · </div><div>REACT · CSS · JAVASCRIPT · MOTION · WEBGL · SVG · TAILWIND · OPEN SOURCE · </div></section>
+<section class="section" id="library"><div class="section-head"><div><span class="kicker">THE LIBRARY</span><h2>Start with motion.</h2></div><p>Every animation has its own preview page with source, usage and implementation details.</p></div><div class="toolbar"><div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="hover">Hover</button><button class="filter" data-filter="text">Text</button><button class="filter" data-filter="cards">Cards</button><button class="filter" data-filter="background">Backgrounds</button></div><label class="search"><span>⌕</span><input id="search" placeholder="Search animations..." aria-label="Search animations"></label></div><div class="grid" id="componentGrid"></div><div class="empty" id="empty">No components found. Try another search.</div></section>
+<section class="templates section" id="templates"><div class="section-head"><div><span class="kicker">TEMPLATES</span><h2>More than components.</h2></div><p>Complete starting points for portfolios, landing pages, product sites and experiments.</p></div><div class="template-grid"><article class="template large"><div class="template-art art-portfolio"><span>PORTFOLIO / 01</span><strong>Creative<br>Portfolio</strong></div><div class="template-meta"><h3>Creative Portfolio</h3><span>Coming soon</span></div></article><article class="template"><div class="template-art art-saas"><span>PRODUCT / 02</span><strong>Launch<br>Faster.</strong></div><div class="template-meta"><h3>Modern SaaS</h3><span>Coming soon</span></div></article><article class="template"><div class="template-art art-docs"><span>DOCS / 03</span><strong>Build with<br>clarity.</strong></div><div class="template-meta"><h3>Developer Docs</h3><span>Coming soon</span></div></article></div></section>
+<section class="cta" id="about"><div class="cta-glow"></div><span class="kicker">BUILT TO BE SHARED</span><h2>Your next interface<br><em>starts here.</em></h2><p>Free to explore. Free to customize. Built in public.</p><a class="button primary" href="https://github.com/TEJAS-MK2/ANIMATION">Contribute on GitHub ↗</a></section>
+</main><footer><span>© 2026 ANIMATION</span><span>Built for the web, by the community.</span><a href="https://github.com/TEJAS-MK2/ANIMATION">GitHub ↗</a></footer>
+<script src="app.js"></script></body></html>
