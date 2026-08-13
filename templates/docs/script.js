@@ -1,0 +1,1 @@
+const menu=document.getElementById('menu'),side=document.getElementById('sidebar');menu?.addEventListener('click',()=>{side.classList.toggle('open');menu.setAttribute('aria-expanded',String(side.classList.contains('open')))});side?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>side.classList.remove('open')));
