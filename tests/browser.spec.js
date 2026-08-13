@@ -5,7 +5,8 @@ const components = [
   'scramble-text','glow-button','animated-underline','depth-card','flip-card',
   'typewriter','gradient-text','letter-wave','grid-pulse','particle-field',
   'mesh-gradient','ripple-button','border-beam','elastic-card','count-up',
-  'modal','toast','dropdown','tooltip','tabs','accordion','loading','scroll-reveal','cursor-highlight'
+  'modal','toast','dropdown','tooltip','tabs','accordion','loading','scroll-reveal','cursor-highlight',
+  'command-palette','progress-bar','skeleton','segmented-control'
 ];
 
 const pages = ['', 'docs/', 'docs/components/', 'registry/', 'downloads/', 'templates/'];
@@ -33,7 +34,31 @@ test('documentation links back to the library', async ({ page }) => {
 
 test('component reference exposes all components', async ({ page }) => {
   await page.goto('http://127.0.0.1:4173/docs/components/');
-  await expect(page.getByRole('heading', { name: /29 components, documented/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /33 components, documented/i })).toBeVisible();
+  await expect(page.locator('article')).toHaveCount(33);
+});
+
+test('interactive controls have accessible names', async ({ page }) => {
+  for (const component of ['modal','command-palette','progress-bar','segmented-control']) {
+    await page.goto(`http://127.0.0.1:4173/components/${component}.html`);
+    const unnamed = await page.locator('button, input, select, textarea, [role="button"]').evaluateAll(nodes => nodes.filter(node => {
+      const label = node.getAttribute('aria-label') || node.getAttribute('aria-labelledby') || node.textContent?.trim();
+      return !label;
+    }).length);
+    expect(unnamed, component).toBe(0);
+  }
+});
+
+test('reduced motion is respected by new animated components', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const component of ['progress-bar','skeleton']) {
+    await page.goto(`http://127.0.0.1:4173/components/${component}.html`);
+    const animated = await page.locator('*').evaluateAll(nodes => nodes.filter(node => {
+      const animation = getComputedStyle(node).animationName;
+      return animation && animation !== 'none';
+    }).length);
+    expect(animated, component).toBe(0);
+  }
 });
 
 test('mobile page remains usable', async ({ page }) => {
