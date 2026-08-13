@@ -1,0 +1,49 @@
+name: Template submission
+description: Propose a complete website template for ANIMATION.
+title: "[Template] "
+labels:
+  - template
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Template name
+      placeholder: Creative Agency
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: Describe the audience and intended use case.
+    validations:
+      required: true
+  - type: textarea
+    id: demo
+    attributes:
+      label: Demo
+      description: Provide a deployed demo, screenshot, or recording.
+    validations:
+      required: true
+  - type: textarea
+    id: structure
+    attributes:
+      label: Structure
+      description: List the main sections and interactions.
+    validations:
+      required: true
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Checklist
+      options:
+        - label: The template is responsive.
+          required: true
+        - label: The template works without unnecessary dependencies.
+          required: true
+        - label: Interactive motion respects prefers-reduced-motion.
+          required: true
+        - label: I tested the template on desktop and mobile.
+          required: true
+        - label: I have the right to submit this work under the project license.
+          required: true
