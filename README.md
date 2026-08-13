@@ -1,56 +1,118 @@
 # ANIMATION
 
-A free, open-source animation and UI template library for the web.
+A free, open-source library of polished web animations, UI components, effects, and starter templates.
 
-## Live Website
+## Live website
 
 **[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
 
-The live site provides interactive previews of reusable animations, UI components, effects, backgrounds, and templates.
+## What it provides
 
-## Vision
+ANIMATION is designed around a simple workflow:
 
-**Browse → Preview → Copy → Customize → Ship.**
+**Discover → Preview → Copy → Customize → Ship.**
 
-ANIMATION is being built as a community-first collection of polished motion effects, interactive components, backgrounds, and complete website templates inspired by the best modern web interfaces.
+The project aims to give developers reusable motion and interface building blocks that can be dropped into real websites without a heavy build system.
 
-## Current website
+### Current features
 
-The repository currently contains a zero-build static showcase designed for GitHub Pages.
+- Interactive animation and UI component gallery
+- Search and category filtering
+- Responsive component previews
+- Dedicated component viewer
+- Live customization playground
+- HTML, CSS, JavaScript, React, and Tailwind code tabs where available
+- One-click code copying
+- Responsive mobile navigation
+- Reduced-motion support
+- Accessible keyboard interactions
+- Website template previews
+- GitHub Pages deployment
+- Zero-build static frontend
 
-### Included in v0
+### Component collection
 
-- Interactive component gallery
-- Category filters
-- Live search
-- Copy-code buttons
-- Magnetic button interaction
-- 3D tilt card
-- Text reveal
-- Pointer spotlight
-- Animated aurora background
-- Scramble text
-- Template previews
-- Responsive mobile layout
-- Reduced dependency footprint — plain HTML, CSS and JavaScript
+The current library includes effects such as:
 
-## Roadmap
+- Magnetic Button
+- Tilt Card
+- Text Reveal
+- Spotlight Card
+- Aurora Background
+- Scramble Text
+- Glow Button
+- Animated Underline
+- Depth Card
+- Flip Card
+- Typewriter
+- Gradient Text
+- Letter Wave
+- Grid Pulse
+- Particle Field
+- Mesh Gradient
+- Ripple Button
+- Border Beam
+- Elastic Card
+- Count Up
 
-- [ ] Component detail pages
-- [ ] One-click raw source downloads
-- [ ] React + Tailwind component versions
-- [ ] Motion/Framer Motion versions
-- [ ] GSAP experiments
-- [ ] SVG and WebGL collection
-- [ ] More complete templates
-- [ ] Documentation and API references
-- [ ] Community contribution workflow
-- [ ] Searchable component registry
-- [ ] Accessibility and reduced-motion presets
+## Project structure
+
+```text
+ANIMATION/
+├── index.html
+├── component.html
+├── app.js
+├── styles.css
+├── components/
+│   ├── component-shell.js
+│   ├── component-shell.css
+│   └── component examples
+├── templates/
+├── README.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+└── SECURITY.md
+```
+
+## Development
+
+ANIMATION is intentionally lightweight. The main showcase uses standard HTML, CSS, and JavaScript and can be previewed locally without a build step.
+
+```bash
+git clone https://github.com/TEJAS-MK2/ANIMATION.git
+cd ANIMATION
+```
+
+Then open `index.html` in a browser or serve the directory with any static HTTP server.
 
 ## Contributing
 
-Add new components with a live preview, clear source code, usage instructions, dependencies, and attribution where the work is inspired by another creator.
+Contributions are welcome. Before submitting a component, read [CONTRIBUTING.md](CONTRIBUTING.md) and follow the component quality, accessibility, performance, and licensing requirements.
+
+## Security
+
+Please do not publicly disclose security vulnerabilities. Follow [SECURITY.md](SECURITY.md) for responsible reporting.
+
+## Code of Conduct
+
+Participation in this project is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
+## Roadmap
+
+- [x] Component gallery
+- [x] Search and filters
+- [x] Component viewer
+- [x] Code-copy workflow
+- [x] Responsive navigation
+- [x] Reduced-motion support
+- [ ] Complete framework implementation for every component
+- [ ] More customization controls
+- [ ] Downloadable component source packages
+- [ ] Larger template collection
+- [ ] Searchable component registry
+- [ ] Community submissions
+- [ ] Documentation site
+- [ ] npm distribution
 
 ## License
 
