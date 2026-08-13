@@ -2,8 +2,10 @@ name: Publish GitHub Package
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
+    paths:
+      - 'package.json'
   workflow_dispatch:
 
 permissions:
