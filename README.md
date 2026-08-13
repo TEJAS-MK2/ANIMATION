@@ -38,7 +38,7 @@ The package targets Node.js **18+**. GitHub Packages releases use semantic versi
 
 ## Package API
 
-The package now has a small stable JavaScript/TypeScript entrypoint for tooling and integrations:
+The package has a small stable JavaScript/TypeScript entrypoint for tooling and integrations:
 
 ```js
 import { version, components, getComponentPath } from '@tejas-mk2/animation';
@@ -83,7 +83,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library includes **33 reusable effects and UI patterns**.
+The library currently includes **37 reusable effects and UI patterns**, including modal, breadcrumbs, drawer, pagination, and popover components.
 
 ## Framework recipes
 
@@ -109,6 +109,7 @@ See [`docs/recipes.md`](docs/recipes.md).
 - Responsive mobile navigation
 - Reduced-motion support
 - Keyboard-friendly interactions
+- Semantic accessible UI patterns
 - Six complete website templates
 - Community submission workflows
 - GitHub Pages deployment
@@ -133,7 +134,7 @@ npm run test:browser
 npm run test:visual
 ```
 
-The browser suite uses Playwright in GitHub Actions and checks core pages, documentation, the registry, templates, downloads, mobile rendering, accessibility of interactive controls, reduced-motion behavior, and every component source page. The visual guard checks representative pages for empty renders, missing titles, unexpected horizontal overflow, and other structural visual regressions.
+The browser suite uses Playwright in GitHub Actions and checks core pages, documentation, the registry, templates, downloads, mobile rendering, accessibility of interactive controls, reduced-motion behavior, and component source pages. The visual guard checks representative pages for empty renders, missing titles, unexpected horizontal overflow, and other structural visual regressions.
 
 ## Accessibility
 
@@ -146,6 +147,7 @@ GitHub Actions checks release-critical project health, including:
 - JavaScript syntax
 - Repository structure and required files
 - Local `href` and `src` references
+- Complete HTML document metadata for standalone component pages
 - Package metadata
 - Package contents
 - Release/tag version consistency
@@ -189,7 +191,7 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Automated quality checks
 - [x] Automated browser smoke tests
 - [x] Accessibility guidance
-- [x] 33-component library
+- [x] 37-component library
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
 - [x] `v1.1.0` release
@@ -200,6 +202,7 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Stable package entrypoint
 - [x] TypeScript package declarations
 - [x] Contribution and issue templates
+- [x] Accessible modal, drawer, popover, breadcrumbs, and pagination patterns
 
 ### Next
 
