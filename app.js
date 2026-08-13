@@ -1,26 +1,13 @@
-const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-
-// Mobile navigation
-const menu=$('.menu');const nav=$('.nav nav');const setMenu=open=>{document.body.classList.toggle('menu-open',open);nav?.classList.toggle('open',open);if(nav)nav.style.display=open?'flex':'';if(menu)menu.setAttribute('aria-expanded',String(open))};menu?.addEventListener('click',()=>setMenu(!document.body.classList.contains('menu-open')));nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
-
-// Copy-to-clipboard controls
-$$('.copy').forEach(btn=>btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(btn.dataset.code);const old=btn.textContent;btn.textContent='Copied!';setTimeout(()=>btn.textContent=old,1200)}catch{btn.textContent='Select manually'}}));
-
-// Category + search filtering
-const cards=$$('.component');const filters=$$('.filter');const search=$('#search');
-function render(){const active=$('.filter.active').dataset.filter;const q=search.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const okCat=active==='all'||card.dataset.category===active;const okSearch=!q||card.dataset.name.includes(q);const show=okCat&&okSearch;card.classList.toggle('hidden',!show);if(show)visible++});$('#empty').style.display=visible?'none':'block'}
-filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');render()}));search.addEventListener('input',render);
-
-// Pointer-reactive magnetic button
-$$('.magnetic').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left-r.width/2)*.25;const y=(e.clientY-r.top-r.height/2)*.25;el.style.transform=`translate(${x}px,${y}px)`}));
-$$('.magnetic').forEach(el=>el.addEventListener('pointerleave',()=>el.style.transform='translate(0,0)'));
-
-// Spotlight follows pointer inside its demo
-$$('.spotlight-card').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();const x=((e.clientX-r.left)/r.width)*100;const y=((e.clientY-r.top)/r.height)*100;el.style.background=`radial-gradient(circle at ${x}% ${y}%, rgba(200,255,61,.18), transparent 28%), #0e0e10`}));
-$$('.spotlight-card').forEach(el=>el.addEventListener('pointerleave',()=>el.style.background='radial-gradient(circle at 50% 50%,rgba(200,255,61,.14),transparent 28%),#0e0e10'));
-
-// Lightweight scramble preview
-const scramble=$('#scramble');const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';let timer;function scrambleText(){if(!scramble)return;const target='MOTION / 001';let frame=0;clearInterval(timer);timer=setInterval(()=>{scramble.textContent=target.split('').map((c,i)=>c===' '?c:(i<frame?c:chars[Math.floor(Math.random()*chars.length)])).join('');frame++;if(frame>target.length)clearInterval(timer)},55)}scrambleText();scramble?.addEventListener('mouseenter',scrambleText);
-
-// Reveal sections when they enter the viewport
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}}),{threshold:.08});$$('.section,.cta,.component,.template').forEach(el=>observer.observe(el));
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const menu=$('.menu'),nav=$('.nav nav');
+const setMenu=open=>{document.body.classList.toggle('menu-open',open);nav?.classList.toggle('open',open);if(menu)menu.setAttribute('aria-expanded',String(open))};
+menu?.addEventListener('click',()=>setMenu(!document.body.classList.contains('menu-open')));nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+$$('.copy').forEach(btn=>btn.addEventListener('click',async()=>{const code=btn.dataset.code||'';try{await navigator.clipboard.writeText(code)}catch{const ta=document.createElement('textarea');ta.value=code;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}const old=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=old,1100)}));
+const cards=$$('.component'),filters=$$('.filter'),search=$('#search'),empty=$('#empty');
+function render(){const active=$('.filter.active')?.dataset.filter||'all',q=(search?.value||'').trim().toLowerCase();let visible=0;cards.forEach(card=>{const okCat=active==='all'||card.dataset.category===active;const name=(card.dataset.name||'').toLowerCase();const show=okCat&&(!q||name.includes(q));card.classList.toggle('hidden',!show);if(show)visible++});if(empty)empty.style.display=visible?'none':'block'}
+filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');render()}));search?.addEventListener('input',render);
+$$('[data-tilt]').forEach(el=>{el.addEventListener('pointermove',e=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(700px) rotateX(${-y*12}deg) rotateY(${x*14}deg) translateY(-3px)`});el.addEventListener('pointerleave',()=>el.style.transform='')});
+$$('.magnetic').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.22,y=(e.clientY-r.top-r.height/2)*.22;el.style.transform=`translate(${x}px,${y}px)`});el.addEventListener('pointerleave',()=>el.style.transform='')});
+$$('.spotlight-card').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',`${e.clientX-r.left}px`);el.style.setProperty('--my',`${e.clientY-r.top}px`)});el.addEventListener('pointerleave',()=>{el.style.setProperty('--mx','50%');el.style.setProperty('--my','50%')})});
+const scramble=$('#scramble'),chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';let scrambleTimer;function scrambleText(){if(!scramble)return;const target=scramble.dataset.target||scramble.textContent;let frame=0;clearInterval(scrambleTimer);scrambleTimer=setInterval(()=>{scramble.textContent=target.split('').map((c,i)=>c===' '?c:i<frame?c:chars[Math.floor(Math.random()*chars.length)]).join('');if(++frame>target.length)clearInterval(scrambleTimer)},45)}scrambleText();scramble?.addEventListener('mouseenter',scrambleText);
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}}),{threshold:.08});$$('.section,.cta,.component,.template').forEach(el=>observer.observe(el));render();
