@@ -1,9 +1,19 @@
-<!-- Pagination: semantic navigation with current-page state. -->
-<nav aria-label="Pagination" class="animation-pagination">
-  <a href="?page=1" aria-label="Previous page">Previous</a>
-  <a href="?page=1" aria-current="page">1</a>
-  <a href="?page=2">2</a>
-  <a href="?page=3">3</a>
-  <a href="?page=2" aria-label="Next page">Next</a>
-</nav>
-<style>.animation-pagination{display:flex;gap:.35rem;align-items:center}.animation-pagination a{padding:.45rem .7rem;border:1px solid color-mix(in srgb,currentColor 22%,transparent);border-radius:.5rem;text-decoration:none;transition:transform .18s ease}.animation-pagination a:hover{transform:translateY(-1px)}.animation-pagination a[aria-current="page"]{font-weight:700}.animation-pagination a:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media(prefers-reduced-motion:reduce){.animation-pagination a{transition:none}}</style>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pagination — ANIMATION</title>
+</head>
+<body>
+  <!-- Pagination: semantic navigation with current-page state. -->
+  <nav aria-label="Pagination" class="animation-pagination">
+    <a href="?page=1" aria-label="Previous page">Previous</a>
+    <a href="?page=1" aria-current="page">1</a>
+    <a href="?page=2">2</a>
+    <a href="?page=3">3</a>
+    <a href="?page=2" aria-label="Next page">Next</a>
+  </nav>
+  <style>.animation-pagination{display:flex;gap:.35rem;align-items:center}.animation-pagination a{padding:.45rem .7rem;border:1px solid color-mix(in srgb,currentColor 22%,transparent);border-radius:.5rem;text-decoration:none;transition:transform .18s ease}.animation-pagination a:hover{transform:translateY(-1px)}.animation-pagination a[aria-current="page"]{font-weight:700}.animation-pagination a:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media(prefers-reduced-motion:reduce){.animation-pagination a{transition:none}}</style>
+</body>
+</html>
