@@ -15,9 +15,9 @@
   "types": "./package/index.d.ts",
   "scripts": {"test": "node --check app.js && node --check registry/app.js && node --check docs/app.js && node --check frameworks/component-snippets.js && node --check package/index.js && node --check package/runtime.js && node tests/runtime.test.mjs", "pack:check": "npm pack --dry-run", "test:browser": "playwright test", "test:visual": "node scripts/visual-check.mjs"},
   "engines": {"node": ">=18"},
-  "devDependencies": {"@playwright/test": "1.55.0"},
+  "devDependencies": {"@playwright/test": "1.55.1"},
   "repository": {"type": "git", "url": "git+https://github.com/TEJAS-MK2/ANIMATION.git"},
   "bugs": {"url": "https://github.com/TEJAS-MK2/ANIMATION/issues"},
   "homepage": "https://tejas-mk2.github.io/ANIMATION/",
-  "publishConfig": {"registry": "https://npm.pkg.github.com" }
+  "publishConfig": {"registry": "https://npm.pkg.github.com"}
 }
