@@ -4,6 +4,12 @@ A lightweight, accessible, open-source UI motion library for the web.
 
 ANIMATION provides copy-ready components, complete page blocks, templates, and framework integration recipes. The project is intentionally practical: restrained motion, clear hierarchy, responsive layouts, and accessible interaction come first.
 
+## Live site
+
+**GitHub Pages:** https://tejas-mk2.github.io/ANIMATION/
+
+The public site contains the component browser, blocks, templates, integrations, documentation, and interactive demos.
+
 ## What is included
 
 | Collection | Description |
