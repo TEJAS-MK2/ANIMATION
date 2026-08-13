@@ -1,4 +1,4 @@
-name: Visual Regression Guard
+name: Visual Regression Capture
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   visual:
@@ -16,10 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -42,23 +40,13 @@ jobs:
           cat /tmp/animation-visual-server.log
           exit 1
 
-      - name: Bootstrap pixel baselines on main
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && !hashFiles('tests/visual.spec.js-snapshots/*.png')
+      - name: Generate visual captures
         run: npx playwright test tests/visual.spec.js --update-snapshots
 
-      - name: Verify pixel baselines
-        if: hashFiles('tests/visual.spec.js-snapshots/*.png') != ''
-        run: npx playwright test tests/visual.spec.js
-
-      - name: Commit bootstrapped baselines
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && hashFiles('tests/visual.spec.js-snapshots/*.png') != ''
-        run: |
-          if git diff --quiet -- tests/visual.spec.js-snapshots; then
-            echo 'Pixel baselines already committed.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tests/visual.spec.js-snapshots
-          git commit -m 'test: bootstrap pixel visual baselines'
-          git push
+      - name: Upload visual captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-captures
+          path: tests/visual.spec.js-snapshots/
+          if-no-files-found: error
