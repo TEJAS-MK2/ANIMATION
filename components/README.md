@@ -1,6 +1,6 @@
 # Animation Components
 
-The library now contains **28 starter components**. Each demo is designed to be copyable and progressively reusable.
+The library now contains **29 starter components**. Each demo is designed to be copyable and progressively reusable.
 
 ## Categories
 
