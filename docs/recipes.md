@@ -1,95 +1,56 @@
 # Framework recipes
 
-These recipes show how to integrate ANIMATION patterns into common frontend stacks. The examples are intentionally small so they can be adapted to an existing application.
+These recipes are the short, practical entry points into the full [multi-language and framework integration system](integrations.md). Each integration documents installation, component usage, styling, animation initialization, and framework-specific caveats.
 
-## Vanilla JavaScript
+## Recommended integrations
 
-Copy the component markup and styles from the component reference, then initialize behavior after the DOM is available.
+- [HTML / CSS / JavaScript](integrations.md#core-web-html-css-javascript)
+- [TypeScript](integrations.md#typescript)
+- [React](integrations.md#react)
+- [Next.js](integrations.md#nextjs)
+- [Vue / Nuxt](integrations.md#vue--nuxt)
+- [Svelte / SvelteKit](integrations.md#svelte--sveltekit)
+- [Angular](integrations.md#angular)
+- [Solid](integrations.md#solid)
+- [Astro](integrations.md#astro)
+- [Preact](integrations.md#preact)
+- [Lit / Web Components](integrations.md#lit--web-components)
+- [Alpine.js](integrations.md#alpinejs)
+- [Qwik](integrations.md#qwik)
+- [Tailwind CSS](integrations.md#tailwind-css)
+- [Sass / SCSS](integrations.md#sass--scss)
+- [CSS Modules](integrations.md#css-modules)
+- [Bootstrap](integrations.md#bootstrap)
+- [UnoCSS](integrations.md#unocss)
+- [Python / Flask](integrations.md#python--flask)
+- [Python / Django](integrations.md#python--django)
+- [PHP / Laravel](integrations.md#php--laravel)
+- [Ruby / Rails](integrations.md#ruby--rails)
+- [Java / Spring](integrations.md#java--spring)
+- [C# / ASP.NET](integrations.md#c--aspnet)
+- [Go](integrations.md#go)
+- [Rust / WebAssembly](integrations.md#rust--webassembly)
+- [Flutter / Dart](integrations.md#flutter--dart)
+- [React Native / Expo](integrations.md#react-native--expo)
+- [Swift / iOS](integrations.md#swift--ios)
+- [Kotlin / Android](integrations.md#kotlin--android)
 
-```js
-const button = document.querySelector('[data-animation]');
-button?.addEventListener('click', () => {
-  button.classList.add('is-active');
-});
-```
+## Integration model
 
-Keep component state local and avoid global listeners unless the interaction genuinely needs them.
+ANIMATION is web-first. The canonical implementation is HTML, CSS, and JavaScript. Framework recipes explain how to preserve the same component contract inside different application architectures.
 
-## React
-
-Treat interactive animation state as component state and keep DOM effects inside event handlers or effects.
-
-```jsx
-import { useState } from 'react';
-
-export function AnimatedButton() {
-  const [active, setActive] = useState(false);
-
-  return (
-    <button
-      type="button"
-      className={active ? 'animation-button is-active' : 'animation-button'}
-      onClick={() => setActive((value) => !value)}
-    >
-      Animate
-    </button>
-  );
-}
-```
-
-## TypeScript
-
-Give component options explicit types rather than passing unstructured objects around.
-
-```ts
-export type MotionPreference = 'full' | 'reduced';
-
-export interface AnimationOptions {
-  duration?: number;
-  motion?: MotionPreference;
-}
-```
-
-## Tailwind CSS
-
-Use Tailwind for layout and state utilities while keeping complex animation keyframes in a dedicated stylesheet when that makes the effect easier to maintain.
-
-```html
-<button class="transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0">
-  Hover me
-</button>
-```
-
-## Next.js
-
-Interactive components should be client components only when they require browser state or event handlers.
-
-```tsx
-'use client';
-
-import { useState } from 'react';
-
-export default function Demo() {
-  const [open, setOpen] = useState(false);
-  return (
-    <button type="button" onClick={() => setOpen(!open)}>
-      {open ? 'Close' : 'Open'}
-    </button>
-  );
-}
-```
-
-Keep animation markup compatible with server rendering and avoid reading `window`, `document`, or layout measurements during render.
+For native platforms such as Flutter, React Native, Swift, and Kotlin, the recipes describe how to reproduce the **motion pattern** rather than claiming that a DOM component can run natively.
 
 ## Accessibility checklist
 
 For every recipe:
 
-- Prefer semantic HTML.
-- Keep keyboard interaction equivalent to pointer interaction.
+- Prefer semantic HTML or the platform's semantic equivalent.
+- Keep keyboard or assistive interaction equivalent to pointer interaction.
 - Preserve visible focus.
-- Respect `prefers-reduced-motion` for non-essential movement.
-- Do not communicate state using color alone.
+- Respect `prefers-reduced-motion` or the platform's reduced-motion setting for non-essential movement.
+- Do not communicate state using color or animation alone.
 - Avoid animation that blocks the primary task.
+- Clean up listeners, observers, timers, and animation resources.
 
-See [`accessibility.md`](accessibility.md) for the project-wide guidance.
+See [`accessibility.md`](accessibility.md) for project-wide guidance and [`integrations.md`](integrations.md) for the complete integration matrix and recipes.
