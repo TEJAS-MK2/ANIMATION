@@ -36,6 +36,21 @@ See [`docs/package.md`](docs/package.md) for authentication, CI usage, verificat
 
 The package targets Node.js **18+**. GitHub Packages releases use semantic version tags (`vMAJOR.MINOR.PATCH`), and the tag must match the version in `package.json`.
 
+## Package API
+
+The package now has a small stable JavaScript/TypeScript entrypoint for tooling and integrations:
+
+```js
+import { version, components, getComponentPath } from '@tejas-mk2/animation';
+
+console.log(version);
+console.log(getComponentPath('modal'));
+```
+
+TypeScript declarations are included at `package/index.d.ts`. The reusable component sources remain under `components/`, while the gallery, documentation, registry, and templates remain website concerns.
+
+See [`package/README.md`](package/README.md) for the complete component-name map.
+
 ## Release process
 
 Releases are validated and published through GitHub Actions:
@@ -103,6 +118,7 @@ See [`docs/recipes.md`](docs/recipes.md).
 - Automated browser smoke tests
 - Accessibility regression checks
 - Representative visual regression guard
+- Stable package API and TypeScript declarations
 - Zero-build static frontend
 
 ## Local development
@@ -136,6 +152,7 @@ GitHub Actions checks release-critical project health, including:
 - Browser smoke tests
 - Accessibility regression checks
 - Representative visual regression guards
+- Package entrypoint syntax
 
 A release is only considered ready when its validation steps pass.
 
@@ -180,6 +197,8 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Framework integration recipes
 - [x] Visual regression guard
 - [x] Package installation and authentication guide
+- [x] Stable package entrypoint
+- [x] TypeScript package declarations
 - [x] Contribution and issue templates
 
 ### Next
