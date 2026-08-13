@@ -11,5 +11,6 @@
   "engines": {"node": ">=18"},
   "repository": {"type": "git", "url": "https://github.com/TEJAS-MK2/ANIMATION.git"},
   "bugs": {"url": "https://github.com/TEJAS-MK2/ANIMATION/issues"},
-  "homepage": "https://tejas-mk2.github.io/ANIMATION/"
+  "homepage": "https://tejas-mk2.github.io/ANIMATION/",
+  "publishConfig": {"registry": "https://npm.pkg.github.com"}
 }
