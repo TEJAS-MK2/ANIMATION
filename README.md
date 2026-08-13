@@ -2,6 +2,12 @@
 
 A free, open-source animation and UI template library for the web.
 
+## Live Website
+
+**[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
+
+The live site provides interactive previews of reusable animations, UI components, effects, backgrounds, and templates.
+
 ## Vision
 
 **Browse → Preview → Copy → Customize → Ship.**
