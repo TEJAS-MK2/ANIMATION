@@ -6,7 +6,7 @@ const components = [
   'typewriter','gradient-text','letter-wave','grid-pulse','particle-field',
   'mesh-gradient','ripple-button','border-beam','elastic-card','count-up',
   'modal','toast','dropdown','tooltip','tabs','accordion','loading','scroll-reveal','cursor-highlight',
-  'command-palette','progress-bar','skeleton','segmented-control'
+  'command-palette','progress-bar','skeleton','segmented-control','popover','pagination','breadcrumbs','drawer'
 ];
 
 const pages = ['', 'docs/', 'docs/components/', 'registry/', 'downloads/', 'templates/'];
@@ -34,12 +34,12 @@ test('documentation links back to the library', async ({ page }) => {
 
 test('component reference exposes all components', async ({ page }) => {
   await page.goto('http://127.0.0.1:4173/docs/components/');
-  await expect(page.getByRole('heading', { name: /33 components, documented/i })).toBeVisible();
-  await expect(page.locator('article')).toHaveCount(33);
+  await expect(page.getByRole('heading', { name: /37 components, documented/i })).toBeVisible();
+  await expect(page.locator('article')).toHaveCount(37);
 });
 
 test('interactive controls have accessible names', async ({ page }) => {
-  for (const component of ['modal','command-palette','progress-bar','segmented-control']) {
+  for (const component of ['modal','command-palette','progress-bar','segmented-control','popover','pagination','breadcrumbs','drawer']) {
     await page.goto(`http://127.0.0.1:4173/components/${component}.html`);
     const unnamed = await page.locator('button, input, select, textarea, [role="button"]').evaluateAll(nodes => nodes.filter(node => {
       const label = node.getAttribute('aria-label') || node.getAttribute('aria-labelledby') || node.textContent?.trim();
