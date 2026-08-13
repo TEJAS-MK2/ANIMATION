@@ -1,6 +1,6 @@
 # ANIMATION
 
-A free, open-source collection of web animations, UI components, and complete starter templates.
+A free, open-source collection of web animations, UI components, website blocks, and complete starter templates.
 
 **Discover → Preview → Copy → Customize → Ship.**
 
@@ -14,13 +14,9 @@ A free, open-source collection of web animations, UI components, and complete st
 
 The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance and framework references.
 
-## GitHub Packages
+## Current release — v1.3.0
 
-ANIMATION is distributed as **`@tejas-mk2/animation`** through GitHub Packages.
-
-### Current stable release
-
-**`@tejas-mk2/animation@1.2.0`**
+**`@tejas-mk2/animation@1.3.0` is the current stable release and is published to GitHub Packages.**
 
 ```bash
 npm install @tejas-mk2/animation --registry=https://npm.pkg.github.com
@@ -34,17 +30,13 @@ For a project-level `.npmrc`:
 
 See [`docs/package.md`](docs/package.md) for authentication, CI usage, verification, and troubleshooting.
 
-The stable package targets Node.js **18+**. The currently released package contains the v1.2.0 API; new unreleased website components are developed independently until the next package release.
+The package targets Node.js **18+** and includes the stable v1.3.0 package API and TypeScript declarations.
 
-## New development direction
-
-The next development cycle expands ANIMATION beyond isolated components into reusable **website blocks** and advanced interaction patterns.
+## What's new in v1.3.0
 
 ### Blocks
 
-The new Blocks collection deliberately **excludes login/authentication and pricing sections**.
-
-Included blocks:
+Added reusable website sections, deliberately excluding login/authentication and pricing sections:
 
 - Hero
 - Feature grid
@@ -55,11 +47,7 @@ Included blocks:
 - Footer
 - Dashboard
 
-Browse them at [`blocks/`](blocks/) or open [`blocks/index.html`](blocks/index.html).
-
 ### Advanced components
-
-The development gallery now includes new concepts for:
 
 - Animated Dock
 - GitHub Activity
@@ -67,6 +55,9 @@ The development gallery now includes new concepts for:
 - Resizable Sidebar
 - Media Timeline
 - Motion Navbar
+
+### Animated backgrounds
+
 - Noise Field
 - Star Field
 - Particle Network
@@ -74,11 +65,19 @@ The development gallery now includes new concepts for:
 - Dot Matrix
 - Wave Grid
 
-These are **unreleased development components** and are not represented as part of the stable `1.2.0` package yet.
+### Website and developer experience
+
+- Redesigned template browser with the same visual language as the main site
+- Expanded component and template documentation
+- Improved navigation between the library, templates, and docs
+- Responsive behavior improvements
+- Reduced-motion considerations
+- Expanded browser and visual regression coverage
+- GitHub Packages release automation
 
 ## Package API
 
-The stable package has a small JavaScript/TypeScript entrypoint:
+The package provides a small JavaScript/TypeScript entrypoint:
 
 ```js
 import { version, components, getComponentPath } from '@tejas-mk2/animation';
@@ -92,6 +91,10 @@ TypeScript declarations are included at `package/index.d.ts`.
 ## Templates
 
 ANIMATION includes complete, ready-to-customize static website starters. Browse them from [`templates/`](templates/).
+
+## Blocks
+
+The reusable Blocks collection is available from [`blocks/`](blocks/) or [`blocks/index.html`](blocks/index.html).
 
 ## Component registry
 
@@ -158,9 +161,9 @@ Motion is treated as enhancement, not a requirement. The project respects `prefe
 
 ## Quality checks
 
-GitHub Actions checks release-critical project health, including JavaScript syntax, repository structure, local references, HTML metadata, package metadata, package contents, release/tag consistency, browser smoke tests, accessibility checks, and representative visual regression guards.
+GitHub Actions validates release-critical project health, including JavaScript syntax, repository structure, local references, HTML metadata, package metadata, package contents, release/tag consistency, browser smoke tests, accessibility checks, and visual regression guards.
 
-A release is only considered ready when its validation steps pass.
+The v1.3.0 release passed the release and package-publication workflows before publication.
 
 ## Contributing
 
@@ -198,15 +201,24 @@ Please report security vulnerabilities responsibly instead of opening a public i
 - [x] TypeScript package declarations
 - [x] Blocks foundation
 - [x] Advanced interaction component foundation
+- [x] v1.3.0 release
+- [x] v1.3.0 GitHub Packages publication
+- [x] Animated Dock
+- [x] GitHub Activity and Contribution Graph
+- [x] Resizable Sidebar
+- [x] Media Timeline
+- [x] Motion Navbar
+- [x] Animated background collection
+- [x] Unified template browser theme
 
 ### Next
 
-- [ ] Integrate the new Blocks browser into the main site navigation
-- [ ] Add dedicated previews and documentation for the new advanced components
+- [ ] Add dedicated previews and documentation for every advanced component
 - [ ] Connect GitHub activity/graph components to configurable data sources
 - [ ] Add full pixel-baseline visual snapshots
 - [ ] Expand advanced component APIs
-- [ ] Decide which new components belong in the next package release
+- [ ] Continue growing the Blocks collection
+- [ ] Plan the next package release based on real-world usage
 
 ## License
 
