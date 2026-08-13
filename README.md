@@ -117,8 +117,8 @@ See [`docs/integrations.md`](docs/integrations.md) for the complete integration 
 - Expanded component and template documentation
 - Dedicated advanced-component documentation standard
 - Configurable GitHub Activity and Contribution Graph data contracts
-- Deterministic visual-baseline policy
-- Framework starter-project fixture matrix
+- Deterministic pixel-baseline visual snapshots
+- Executable framework starter fixtures with CI builds
 - Usage-driven release strategy
 - Improved navigation between the library, templates, and docs
 - Responsive behavior improvements
@@ -128,7 +128,7 @@ See [`docs/integrations.md`](docs/integrations.md) for the complete integration 
 
 ## Package API
 
-The package provides a small JavaScript/TypeScript entrypoint:
+The stable root entrypoint provides component metadata:
 
 ```js
 import { version, components, getComponentPath } from '@tejas-mk2/animation';
@@ -137,7 +137,18 @@ console.log(version);
 console.log(getComponentPath('modal'));
 ```
 
-TypeScript declarations are included at `package/index.d.ts`.
+The advanced runtime helpers are available from `@tejas-mk2/animation/runtime`:
+
+```js
+import {
+  normalizeActivityData,
+  normalizeContributionData,
+  createMotionConfig,
+  getComponentUrl,
+} from '@tejas-mk2/animation/runtime';
+```
+
+See [`docs/runtime-api.md`](docs/runtime-api.md) for the runtime contract and [`package/runtime.d.ts`](package/runtime.d.ts) for TypeScript declarations.
 
 ## Templates
 
@@ -179,8 +190,10 @@ The full collection is available through the searchable [`registry/`](registry/)
 - Static quality checks
 - Automated browser smoke tests
 - Accessibility regression checks
-- Visual regression guard
+- Pixel-baseline visual regression snapshots
+- Framework starter build matrix
 - Stable package API and TypeScript declarations
+- Advanced runtime API and TypeScript declarations
 - Zero-build static frontend
 
 ## Local development
@@ -195,15 +208,21 @@ npm run test:browser
 npm run test:visual
 ```
 
+Framework fixture builds:
+
+```bash
+cd examples/framework-starters/react && npm install && npm run build
+```
+
+The same pattern is available for `vue`, `svelte`, `angular`, `solid`, and `astro`.
+
 ## Accessibility
 
 Motion is treated as enhancement, not a requirement. The project respects `prefers-reduced-motion`, keeps interactive controls keyboard-friendly, and provides static fallbacks. See [`docs/accessibility.md`](docs/accessibility.md).
 
 ## Quality checks
 
-GitHub Actions validates release-critical project health, including JavaScript syntax, repository structure, local references, HTML metadata, package metadata, package contents, release/tag consistency, browser smoke tests, accessibility checks, and visual regression guards.
-
-The v1.3.0 release passed the release and package-publication workflows before publication.
+GitHub Actions validates release-critical project health, including JavaScript syntax, repository structure, local references, HTML metadata, package metadata, package contents, release/tag consistency, browser smoke tests, accessibility checks, framework fixture builds, runtime API tests, and pixel-level visual regression snapshots.
 
 ## Community and contribution guidelines
 
@@ -252,15 +271,16 @@ The v1.3.0 release passed the release and package-publication workflows before p
 - [x] Advanced component documentation contract
 - [x] Configurable activity/contribution data contract
 - [x] Visual baseline policy
-- [x] Framework starter fixture matrix
+- [x] Pixel-baseline snapshot CI
+- [x] Executable framework starter fixtures
+- [x] Framework starter CI build matrix
 - [x] Usage-driven release strategy
 - [x] Additional Stats and Logo Cloud blocks
+- [x] Advanced runtime API helpers
+- [x] Runtime API tests and TypeScript declarations
 
 ### Next release hardening
 
-- [ ] Add deterministic pixel-baseline snapshots to CI for every advanced component
-- [ ] Turn the starter fixture matrix into executable projects and run them in CI
-- [ ] Expand runtime APIs for advanced components while preserving backward compatibility
 - [ ] Continue growing the Blocks collection based on usage and feedback
 - [ ] Use real-world usage signals to select the next package release scope
 
