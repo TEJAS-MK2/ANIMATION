@@ -1,0 +1,1 @@
+{"name":"animation-vue-fixture","private":true,"type":"module","scripts":{"build":"vite build"},"dependencies":{"@tejas-mk2/animation":"file:../../../","@vitejs/plugin-vue":"latest","vite":"latest","vue":"latest"}}
