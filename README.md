@@ -32,6 +32,8 @@ For a project-level `.npmrc`:
 @tejas-mk2:registry=https://npm.pkg.github.com
 ```
 
+See [`docs/package.md`](docs/package.md) for authentication, CI usage, verification, and troubleshooting.
+
 The package targets Node.js **18+**. GitHub Packages releases use semantic version tags (`vMAJOR.MINOR.PATCH`), and the tag must match the version in `package.json`.
 
 ## Release process
@@ -40,11 +42,10 @@ Releases are validated and published through GitHub Actions:
 
 1. Update `package.json` to the intended semantic version.
 2. Run `npm test` and `npm run pack:check`.
-3. Run the browser suite with `npm run test:browser`.
+3. Run `npm run test:browser` and `npm run test:visual`.
 4. Commit the version change.
 5. Create a matching tag such as `v1.2.0`.
-6. GitHub Actions validates the tag and package and publishes the new version to GitHub Packages.
-7. Publish the corresponding GitHub Release when required.
+6. GitHub Actions validates the tag and package, publishes the new version to GitHub Packages, and creates or updates the corresponding GitHub Release.
 
 The release workflow is [`release.yml`](.github/workflows/release.yml). Package publishing is [`publish-package.yml`](.github/workflows/publish-package.yml).
 
@@ -67,41 +68,19 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library includes **33 reusable effects and UI patterns**:
+The library includes **33 reusable effects and UI patterns**.
 
-- Magnetic Button
-- Tilt Card
-- Text Reveal
-- Spotlight Card
-- Aurora Background
-- Scramble Text
-- Glow Button
-- Animated Underline
-- Depth Card
-- Flip Card
-- Typewriter
-- Gradient Text
-- Letter Wave
-- Grid Pulse
-- Particle Field
-- Mesh Gradient
-- Ripple Button
-- Border Beam
-- Elastic Card
-- Count Up
-- Modal
-- Toast
-- Dropdown
-- Tooltip
-- Tabs
-- Accordion
-- Loading
-- Scroll Reveal
-- Cursor Highlight
-- Command Palette
-- Progress Bar
-- Skeleton
-- Segmented Control
+## Framework recipes
+
+Integration guidance is available for:
+
+- Vanilla JavaScript
+- React
+- TypeScript
+- Tailwind CSS
+- Next.js
+
+See [`docs/recipes.md`](docs/recipes.md).
 
 ## Features
 
@@ -123,6 +102,7 @@ The library includes **33 reusable effects and UI patterns**:
 - Static quality checks
 - Automated browser smoke tests
 - Accessibility regression checks
+- Representative visual regression guard
 - Zero-build static frontend
 
 ## Local development
@@ -134,9 +114,10 @@ npm install
 npm test
 npm run pack:check
 npm run test:browser
+npm run test:visual
 ```
 
-The browser test suite uses Playwright in GitHub Actions and checks core pages, documentation, the registry, templates, downloads, mobile rendering, accessibility of new controls, reduced-motion behavior, and every component source page.
+The browser suite uses Playwright in GitHub Actions and checks core pages, documentation, the registry, templates, downloads, mobile rendering, accessibility of interactive controls, reduced-motion behavior, and every component source page. The visual guard checks representative pages for empty renders, missing titles, unexpected horizontal overflow, and other structural visual regressions.
 
 ## Accessibility
 
@@ -154,12 +135,13 @@ GitHub Actions checks release-critical project health, including:
 - Release/tag version consistency
 - Browser smoke tests
 - Accessibility regression checks
+- Representative visual regression guards
 
 A release is only considered ready when its validation steps pass.
 
 ## Contributing
 
-Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting components or templates.
+Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting components or templates. Pull requests include a checklist for testing, accessibility, package impact, and security hygiene.
 
 ## Security
 
@@ -195,13 +177,17 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] `v1.0.1` release
 - [x] `v1.1.0` release
 - [x] `@tejas-mk2/animation@1.1.0` published to GitHub Packages
+- [x] Framework integration recipes
+- [x] Visual regression guard
+- [x] Package installation and authentication guide
+- [x] Contribution and issue templates
 
 ### Next
 
-- [ ] Add framework-specific recipes for the new UI primitives
-- [ ] Add visual regression testing
 - [ ] Expand advanced component APIs
+- [ ] Add full pixel-baseline visual snapshots
 - [ ] Expand the component library
+- [ ] Improve TypeScript-specific examples
 
 ## License
 
