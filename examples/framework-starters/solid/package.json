@@ -1,0 +1,1 @@
+{"name":"animation-solid-fixture","private":true,"type":"module","scripts":{"build":"vite build"},"dependencies":{"@tejas-mk2/animation":"file:../../../","vite":"latest","vite-plugin-solid":"latest","solid-js":"latest"}}
