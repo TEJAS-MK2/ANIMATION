@@ -1,38 +1,28 @@
 # ANIMATION
 
-A free, open-source library of polished web animations, UI components, effects, and starter templates.
+A free, open-source collection of web animations, UI components, and complete starter templates.
+
+**Discover → Preview → Copy → Customize → Ship.**
 
 ## Live website
 
 **[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
 
-## What it provides
+## Templates
 
-ANIMATION is designed around a simple workflow:
+ANIMATION now includes complete, ready-to-customize static website starters:
 
-**Discover → Preview → Copy → Customize → Ship.**
+| Template | Purpose | Link |
+| --- | --- | --- |
+| Creative Portfolio | Developer, designer, and creator portfolios | [`templates/portfolio/`](templates/portfolio/) |
+| Modern SaaS | Product and startup landing pages | [`templates/saas/`](templates/saas/) |
+| Developer Docs | Documentation and developer portals | [`templates/docs/`](templates/docs/) |
 
-The project aims to give developers reusable motion and interface building blocks that can be dropped into real websites without a heavy build system.
+Browse the collection directly from the live site or [`templates/`](templates/).
 
-### Current features
+## Component library
 
-- Interactive animation and UI component gallery
-- Search and category filtering
-- Responsive component previews
-- Dedicated component viewer
-- Live customization playground
-- HTML, CSS, JavaScript, React, and Tailwind source registry
-- One-click code copying
-- Responsive mobile navigation
-- Reduced-motion support
-- Accessible keyboard interactions
-- Website template previews
-- GitHub Pages deployment
-- Zero-build static frontend
-
-### Component collection
-
-The current library includes effects such as:
+The library currently includes reusable effects and UI patterns such as:
 
 - Magnetic Button
 - Tilt Card
@@ -55,6 +45,24 @@ The current library includes effects such as:
 - Elastic Card
 - Count Up
 
+Each component is intended to be understandable, customizable, and usable without a large framework.
+
+## Features
+
+- Interactive component gallery
+- Search and category filtering
+- Responsive previews
+- Dedicated component pages
+- Customization playground
+- HTML, CSS, JavaScript, React, and Tailwind references
+- One-click code copying
+- Responsive mobile navigation
+- Reduced-motion support
+- Keyboard-friendly interactions
+- Complete website templates
+- GitHub Pages deployment
+- Zero-build static frontend
+
 ## Project structure
 
 ```text
@@ -63,6 +71,7 @@ ANIMATION/
 ├── component.html
 ├── app.js
 ├── styles.css
+├── human-ui.css
 ├── components/
 │   ├── component-shell.js
 │   ├── component-shell.css
@@ -71,38 +80,42 @@ ANIMATION/
 │   ├── component-snippets.js
 │   └── README.md
 ├── templates/
+│   ├── index.html
+│   ├── portfolio/
+│   ├── saas/
+│   └── docs/
 ├── README.md
 ├── CONTRIBUTING.md
 ├── CODE_OF_CONDUCT.md
 └── SECURITY.md
 ```
 
-## Development
+## Local development
 
-ANIMATION is intentionally lightweight. The main showcase uses standard HTML, CSS, and JavaScript and can be previewed locally without a build step.
+ANIMATION is intentionally lightweight. The main site uses standard HTML, CSS, and JavaScript and does not require a build system.
 
 ```bash
 git clone https://github.com/TEJAS-MK2/ANIMATION.git
 cd ANIMATION
 ```
 
-Then open `index.html` in a browser or serve the directory with any static HTTP server.
+Then open `index.html` in a browser or serve the directory with a static HTTP server.
 
-## Framework snippets
+## Framework references
 
-The `frameworks/` directory contains reference snippets for all 20 components in HTML, CSS, JavaScript, React, and Tailwind CSS. These snippets are dependency-light and intended to keep framework implementations aligned with the component collection.
+The `frameworks/` directory contains reference implementations for the component collection in HTML, CSS, JavaScript, React, and Tailwind CSS. These references are designed to stay dependency-light and easy to adapt.
 
 ## Contributing
 
-Contributions are welcome. Before submitting a component, read [CONTRIBUTING.md](CONTRIBUTING.md) and follow the component quality, accessibility, performance, and licensing requirements.
+Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting components or templates. New work should consider accessibility, performance, responsive behavior, maintainability, and licensing.
 
 ## Security
 
-Please do not publicly disclose security vulnerabilities. Follow [SECURITY.md](SECURITY.md) for responsible reporting.
+Please report security vulnerabilities responsibly instead of opening a public issue. See [`SECURITY.md`](SECURITY.md).
 
 ## Code of Conduct
 
-Participation in this project is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Roadmap
 
@@ -112,16 +125,21 @@ Participation in this project is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUC
 - [x] Code-copy workflow
 - [x] Responsive navigation
 - [x] Reduced-motion support
-- [x] Framework snippet registry for all 20 components
+- [x] Framework reference registry
+- [x] Creative Portfolio template
+- [x] Modern SaaS template
+- [x] Developer Docs template
+- [x] Public template browser
+- [x] GitHub Pages website
 - [ ] Wire framework snippets directly into the playground
 - [ ] More advanced customization controls
 - [ ] Downloadable component source packages
 - [ ] Larger template collection
 - [ ] Searchable component registry
 - [ ] Community submissions
-- [ ] Documentation site
+- [ ] Full documentation site
 - [ ] npm distribution
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [`LICENSE`](LICENSE).
