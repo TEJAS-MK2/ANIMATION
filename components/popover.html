@@ -1,13 +1,19 @@
-<!-- Popover: accessible disclosure-style floating content. -->
-<div class="animation-popover" data-popover>
-  <button type="button" aria-expanded="false" aria-controls="animation-popover-panel" data-popover-trigger>Options</button>
-  <div id="animation-popover-panel" role="dialog" hidden data-popover-panel>
-    <p>Popover content</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Popover — ANIMATION</title>
+</head>
+<body>
+  <!-- Popover: accessible disclosure-style floating content. -->
+  <div class="animation-popover" data-popover>
+    <button type="button" aria-expanded="false" aria-controls="animation-popover-panel" data-popover-trigger>Options</button>
+    <div id="animation-popover-panel" role="dialog" hidden data-popover-panel>
+      <p>Popover content</p>
+    </div>
   </div>
-</div>
-<style>
-.animation-popover{position:relative;display:inline-block}.animation-popover [data-popover-panel]{position:absolute;z-index:10;inset-block-start:calc(100% + .5rem);inset-inline-start:0;min-width:12rem;padding:1rem;border:1px solid currentColor;border-radius:.75rem;background:Canvas;color:CanvasText;box-shadow:0 .75rem 2rem #0002}.animation-popover [data-popover-panel][hidden]{display:none}
-</style>
-<script>
-(() => { const root=document.querySelector('[data-popover]'); if(!root) return; const trigger=root.querySelector('[data-popover-trigger]'); const panel=root.querySelector('[data-popover-panel]'); const close=()=>{panel.hidden=true;trigger.setAttribute('aria-expanded','false')}; trigger.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;trigger.setAttribute('aria-expanded',String(open));if(open) panel.querySelector('button,a,[tabindex]:not([tabindex="-1"])')?.focus()}); document.addEventListener('click',e=>{if(!root.contains(e.target)) close()}); document.addEventListener('keydown',e=>{if(e.key==='Escape') close()}); })();
-</script>
+  <style>.animation-popover{position:relative;display:inline-block}.animation-popover [data-popover-panel]{position:absolute;z-index:10;inset-block-start:calc(100% + .5rem);inset-inline-start:0;min-width:12rem;padding:1rem;border:1px solid currentColor;border-radius:.75rem;background:Canvas;color:CanvasText;box-shadow:0 .75rem 2rem #0002}.animation-popover [data-popover-panel][hidden]{display:none}</style>
+  <script>(()=>{const root=document.querySelector('[data-popover]');if(!root)return;const trigger=root.querySelector('[data-popover-trigger]'),panel=root.querySelector('[data-popover-panel]'),close=()=>{panel.hidden=true;trigger.setAttribute('aria-expanded','false')};trigger.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;trigger.setAttribute('aria-expanded',String(open));if(open)panel.querySelector('button,a,[tabindex]:not([tabindex="-1"])')?.focus()});document.addEventListener('click',e=>{if(!root.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();</script>
+</body>
+</html>
