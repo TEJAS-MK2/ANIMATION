@@ -1,13 +1,7 @@
 import { chromium } from '@playwright/test';
 
 const baseURL = process.env.BASE_URL || 'http://127.0.0.1:4173';
-const pages = [
-  '/',
-  '/docs/',
-  '/registry/',
-  '/templates/',
-  '/component.html?component=magnetic-button'
-];
+const pages = ['/', '/docs/', '/registry/', '/templates/', '/component.html?name=magnetic-button'];
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -25,14 +19,7 @@ try {
         const style = getComputedStyle(el);
         return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
       }).length;
-      return {
-        title: document.title,
-        width: root.scrollWidth,
-        viewport: root.clientWidth,
-        height: body?.scrollHeight || 0,
-        textLength: text.length,
-        visibleElements: visible
-      };
+      return { title: document.title, width: root.scrollWidth, viewport: root.clientWidth, textLength: text.length, visibleElements: visible };
     });
 
     if (!result.title) failures.push(`${path}: missing document title`);
