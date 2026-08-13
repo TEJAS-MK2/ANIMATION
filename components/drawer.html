@@ -1,0 +1,5 @@
+<!-- Drawer: dialog-based side panel with Escape support. -->
+<button type="button" data-drawer-open aria-controls="animation-drawer">Open menu</button>
+<dialog id="animation-drawer" class="animation-drawer"><form method="dialog"><button aria-label="Close menu">Close</button></form><div tabindex="-1"><h2>Menu</h2><p>Drawer content.</p></div></dialog>
+<style>.animation-drawer{margin:0 0 0 auto;height:100%;max-width:24rem;width:min(88vw,24rem);border:0;padding:1.25rem;box-shadow:-1rem 0 3rem #0003}.animation-drawer::backdrop{background:#0006}.animation-drawer[open]{animation:drawer-in .2s ease}@keyframes drawer-in{from{transform:translateX(100%)}to{transform:translateX(0)}}@media(prefers-reduced-motion:reduce){.animation-drawer[open]{animation:none}}</style>
+<script>(()=>{const b=document.querySelector('[data-drawer-open]'),d=document.getElementById('animation-drawer');b?.addEventListener('click',()=>d?.showModal());})();</script>

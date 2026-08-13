@@ -33,12 +33,14 @@ export const components = {
   commandPalette: 'components/command-palette.html',
   progressBar: 'components/progress-bar.html',
   skeleton: 'components/skeleton.html',
-  segmentedControl: 'components/segmented-control.html'
+  segmentedControl: 'components/segmented-control.html',
+  popover: 'components/popover.html',
+  pagination: 'components/pagination.html',
+  breadcrumbs: 'components/breadcrumbs.html',
+  drawer: 'components/drawer.html'
 };
 
 export function getComponentPath(name) {
-  if (!Object.hasOwn(components, name)) {
-    throw new RangeError(`Unknown ANIMATION component: ${name}`);
-  }
+  if (!Object.hasOwn(components, name)) throw new RangeError(`Unknown ANIMATION component: ${name}`);
   return components[name];
 }

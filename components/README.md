@@ -1,17 +1,17 @@
 # Animation Components
 
-The library now contains **29 starter components**. Each demo is designed to be copyable and progressively reusable.
+The library now contains **37 starter components**. Each demo is designed to be copyable and progressively reusable.
 
 ## Categories
 
-- Hover: magnetic, glow, underline, ripple, border beam, modal, toast, dropdown, tooltip
-- Text: reveal, scramble, typewriter, gradient, letter wave, count up, tabs, accordion
+- Hover: magnetic, glow, underline, ripple, border beam, modal, toast, dropdown, tooltip, segmented control, popover, drawer
+- Text: reveal, scramble, typewriter, gradient, letter wave, count up, tabs, accordion, pagination, breadcrumbs
 - Cards: tilt, spotlight, depth, flip, elastic
 - Backgrounds: aurora, grid pulse, particles, mesh gradient, loading, scroll reveal, cursor highlight
 
-## New in the v1.1 development line
+## New in the v1.2 development line
 
-Modal, Toast, Dropdown, Tooltip, Tabs, Accordion, Loading, Scroll Reveal, and Cursor Highlight provide practical interface primitives in addition to decorative effects.
+Popover, Pagination, Breadcrumbs, and Drawer add practical interface primitives alongside the animation-focused effects.
 
 ## Design rules
 
@@ -19,8 +19,9 @@ Modal, Toast, Dropdown, Tooltip, Tabs, Accordion, Loading, Scroll Reveal, and Cu
 2. Keep interactions responsive and lightweight.
 3. Respect `prefers-reduced-motion`.
 4. Keep components dependency-free unless a dependency provides substantial value.
-5. Every new component should include a live preview and a copyable minimal snippet.
+5. Every component should include a live preview and a copyable minimal snippet.
 6. Important content and controls must remain usable without animation.
+7. Interactive state must remain understandable to keyboard and assistive-technology users.
 
 ## Adding a component
 
