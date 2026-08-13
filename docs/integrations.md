@@ -1,55 +1,67 @@
-# Multi-language and framework integrations
+# ANIMATION integration system
 
-ANIMATION is a web-first toolkit. The core components remain HTML, CSS, and JavaScript, while these integration recipes show how to use the same animation patterns inside different ecosystems.
+ANIMATION is a web-first toolkit. The core implementation remains HTML, CSS, and JavaScript. Integration recipes show how to use the same component and motion patterns across different ecosystems without pretending that every platform can consume DOM components directly.
 
-Every recipe follows the same contract:
+## Architecture
+
+```text
+ANIMATION
+│
+├── Core Web
+│   ├── HTML
+│   ├── CSS
+│   └── JavaScript
+│
+├── JS Frameworks
+│   ├── React
+│   ├── Vue
+│   ├── Svelte
+│   ├── Angular
+│   ├── Solid
+│   └── Astro
+│
+├── CSS Systems
+│   ├── Tailwind
+│   ├── Sass
+│   ├── CSS Modules
+│   └── Bootstrap
+│
+└── Backend / Full-stack Recipes
+    ├── Python
+    ├── PHP
+    ├── Ruby
+    ├── Java
+    ├── C#
+    ├── Go
+    └── Rust/WASM
+```
+
+The architecture above is the canonical top-level navigation model. Additional recipes such as Next.js, Nuxt, SvelteKit, Preact, Lit, Alpine.js, Qwik, UnoCSS, and native platforms live underneath the closest ecosystem category.
+
+## Recipe contract
+
+Every integration recipe should answer the same five questions:
 
 1. **Installation** — what to add to the project.
 2. **Component usage** — how to place an ANIMATION component.
 3. **Styling** — where component CSS and framework styles belong.
 4. **Animation initialization** — when browser behavior should start.
-5. **Framework caveats** — SSR, hydration, lifecycle, or platform-specific concerns.
+5. **Framework-specific caveats** — SSR, hydration, lifecycle, asset pipelines, or platform constraints.
 
-> The examples are intentionally minimal. Use the component's reference implementation for the complete markup and behavior.
+Recipes should also cover accessibility and production considerations where they materially affect the integration.
 
 ## Support matrix
 
-| Ecosystem | Recipe | Primary integration model |
-|---|---|---|
-| HTML / CSS / JavaScript | Core web | Copy component source |
-| TypeScript | Core web | Typed JavaScript |
-| React | JS framework | Component + hooks |
-| Next.js | React meta-framework | Client boundary + SSR-safe markup |
-| Vue | JS framework | SFC + lifecycle |
-| Nuxt | Vue meta-framework | Client-only behavior where required |
-| Svelte | Compiler framework | Component lifecycle |
-| SvelteKit | Svelte meta-framework | SSR-safe browser initialization |
-| Angular | Component framework | Lifecycle + template bindings |
-| Solid | Reactive framework | Signals + effects |
-| Astro | Content framework | Islands for interactive components |
-| Preact | Lightweight React-compatible | Hooks + JSX |
-| Lit | Web components | Shadow DOM + lifecycle |
-| Alpine.js | Lightweight HTML framework | Declarative directives |
-| Qwik | Resumable framework | Client-side event boundaries |
-| Tailwind CSS | Utility CSS | Utilities + component keyframes |
-| Sass / SCSS | CSS preprocessor | Imported component styles |
-| CSS Modules | Scoped CSS | Local class mapping |
-| Bootstrap | CSS framework | Bootstrap layout + ANIMATION motion |
-| UnoCSS | Atomic CSS | Utility generation + custom motion |
-| Python / Flask | Server-rendered web | Templates + static assets |
-| Python / Django | Server-rendered web | Templates + static assets |
-| PHP / Laravel | Server-rendered web | Blade + Vite/static assets |
-| Ruby / Rails | Server-rendered web | ERB + asset pipeline |
-| Java / Spring | Server-rendered web | Thymeleaf/static assets |
-| C# / ASP.NET | Server-rendered web | Razor + static assets |
-| Go | Server-rendered web | Templates + static assets |
-| Rust / WASM | Web runtime | WASM + DOM integration |
-| Flutter / Dart | Cross-platform | Port the interaction pattern; not the DOM component |
-| React Native / Expo | Cross-platform | Port the motion concept; not the DOM component |
-| Swift / iOS | Native | Reimplement the motion concept natively |
-| Kotlin / Android | Native | Reimplement the motion concept natively |
+| Category | Ecosystems |
+|---|---|
+| Core Web | HTML, CSS, JavaScript |
+| JS Frameworks | React, Vue, Svelte, Angular, Solid, Astro |
+| CSS Systems | Tailwind, Sass/SCSS, CSS Modules, Bootstrap |
+| Backend / Full-stack | Python, PHP, Ruby, Java, C#, Go, Rust/WASM |
+| Additional web recipes | TypeScript, Next.js, Nuxt, SvelteKit, Preact, Lit, Alpine.js, Qwik, UnoCSS |
+| Native motion recipes | Flutter/Dart, React Native/Expo, Swift/iOS, Kotlin/Android |
 
-## Core web: HTML, CSS, JavaScript
+## Core Web
 
 ### Installation
 
@@ -65,7 +77,7 @@ No framework dependency is required. Copy the component markup, stylesheet, and 
 
 ### Styling
 
-Load the component stylesheet after your base reset/theme.
+Load component styles after your base reset/theme.
 
 ```html
 <link rel="stylesheet" href="./animation-button.css">
@@ -82,45 +94,15 @@ button?.addEventListener('click', () => button.classList.toggle('is-active'));
 
 ### Caveats
 
-- Keep component state local.
-- Avoid global listeners unless required.
-- Respect `prefers-reduced-motion`.
+Keep state local, clean up listeners, and respect `prefers-reduced-motion`.
 
-## TypeScript
+## JavaScript Frameworks
 
-### Installation
+### React
 
-Use the package or copy the source as appropriate for the project. Keep DOM APIs typed explicitly.
+**Installation:** install `@tejas-mk2/animation` from the configured package registry or copy the source component.
 
-### Component usage
-
-```ts
-const button = document.querySelector<HTMLButtonElement>('[data-animation="button"]');
-```
-
-### Styling
-
-Use normal CSS, CSS Modules, Sass, or the project's preferred styling system.
-
-### Animation initialization
-
-```ts
-button?.addEventListener('click', () => {
-  button.classList.toggle('is-active');
-});
-```
-
-### Caveats
-
-TypeScript does not change browser lifecycle rules. DOM access still belongs in client-side initialization code.
-
-## React
-
-### Installation
-
-Install `@tejas-mk2/animation` from the configured package registry, or copy a component's source when using the source distribution.
-
-### Component usage
+**Component usage:** use React state for interactive state and keep browser effects in refs/effects.
 
 ```tsx
 import { useState } from 'react';
@@ -139,59 +121,17 @@ export function AnimatedButton() {
 }
 ```
 
-### Styling
+**Styling:** import component CSS globally or through the project's CSS strategy.
 
-Import the component CSS globally or map its classes through your CSS strategy.
+**Initialization:** prefer state, refs, and effects over manual DOM queries.
 
-### Animation initialization
+**Caveats:** do not mutate DOM during render; clean up listeners and keep animation state deterministic.
 
-Prefer React state, refs, and effects over manual DOM queries.
+### Vue
 
-### Caveats
+**Installation:** install the package or copy the source component.
 
-- Do not mutate DOM during render.
-- Clean up listeners created in effects.
-- Keep animation state deterministic when possible.
-
-## Next.js
-
-### Installation
-
-Install the package using your project's configured registry.
-
-### Component usage
-
-Interactive components should use a client boundary.
-
-```tsx
-'use client';
-
-export function Demo() {
-  return <button type="button" className="animation-button">Animate</button>;
-}
-```
-
-### Styling
-
-Use global CSS, CSS Modules, Tailwind, or the styling system already used by the Next.js application.
-
-### Animation initialization
-
-Run browser-only initialization inside `useEffect` or a client component.
-
-### Caveats
-
-- Never read `window` or `document` during server rendering.
-- Avoid layout measurement during render.
-- Keep interactive animation out of Server Components.
-
-## Vue / Nuxt
-
-### Installation
-
-Install the package through the project's package manager or copy the component source.
-
-### Component usage
+**Component usage:** use SFC templates, `ref`, and event bindings.
 
 ```vue
 <script setup>
@@ -200,70 +140,45 @@ const active = ref(false);
 </script>
 
 <template>
-  <button
-    type="button"
-    :class="['animation-button', { 'is-active': active }]"
-    @click="active = !active"
-  >
+  <button type="button" :class="['animation-button', { 'is-active': active }]" @click="active = !active">
     Animate
   </button>
 </template>
 ```
 
-### Styling
+**Styling:** use `<style scoped>` for local rules or global CSS for shared keyframes.
 
-Use `<style scoped>` for local component styles or global CSS when the animation relies on shared keyframes.
+**Initialization:** use `onMounted` and `onBeforeUnmount` for DOM work and cleanup.
 
-### Animation initialization
+**Caveats:** guard browser-only APIs when using SSR.
 
-Use `onMounted` for DOM-dependent behavior and `onBeforeUnmount` for cleanup.
+### Svelte
 
-### Caveats
+**Installation:** install the package or copy the component source.
 
-Nuxt can render on the server. Guard browser-only APIs and use client-only boundaries when a component cannot be SSR-safe.
-
-## Svelte / SvelteKit
-
-### Installation
-
-Install the package or copy the source component.
-
-### Component usage
+**Component usage:** keep interaction state in component variables.
 
 ```svelte
 <script>
   let active = false;
 </script>
 
-<button
-  type="button"
-  class:active
-  class="animation-button"
-  on:click={() => active = !active}
->
+<button class="animation-button" class:is-active={active} on:click={() => active = !active}>
   Animate
 </button>
 ```
 
-### Styling
+**Styling:** use component `<style>` blocks and global CSS for shared keyframes.
 
-Use component `<style>` blocks for local rules and global styles for shared keyframes.
+**Initialization:** use `onMount` for browser-only work and return cleanup functions.
 
-### Animation initialization
+**Caveats:** SvelteKit performs SSR, so do not access `window`, `document`, or layout APIs during server evaluation.
 
-Use `onMount` for browser-only DOM work and return cleanup functions for listeners.
+### Angular
 
-### Caveats
+**Installation:** install the package or copy the source into the Angular application.
 
-SvelteKit performs SSR. Do not access `window`, `document`, or layout APIs during server evaluation.
-
-## Angular
-
-### Installation
-
-Install the package or copy the component source into the Angular application.
-
-### Component usage
+**Component usage:** use Angular bindings and component state.
 
 ```ts
 @Component({
@@ -275,25 +190,17 @@ export class DemoComponent {
 }
 ```
 
-### Styling
+**Styling:** use component styles locally and global styles for shared animation primitives.
 
-Use component styles for local rules and global styles for shared animation primitives.
+**Initialization:** use `AfterViewInit` and `OnDestroy` for DOM work and cleanup.
 
-### Animation initialization
+**Caveats:** prefer Angular bindings over direct DOM manipulation; use `ElementRef` only when necessary.
 
-Use `AfterViewInit` for DOM-dependent work and `OnDestroy` for cleanup.
+### Solid
 
-### Caveats
+**Installation:** install the package and component styles.
 
-Prefer Angular bindings and lifecycle APIs over direct DOM manipulation. Use `ElementRef` only when the interaction genuinely requires it.
-
-## Solid
-
-### Installation
-
-Install the package and import component styles.
-
-### Component usage
+**Component usage:** use signals for interaction state.
 
 ```tsx
 import { createSignal } from 'solid-js';
@@ -304,226 +211,193 @@ export function Demo() {
 }
 ```
 
-### Styling
+**Styling:** use normal CSS or the application's scoped styling system.
 
-Use normal CSS or the application's preferred scoped styling solution.
+**Initialization:** use `onMount` and `onCleanup` for browser resources.
 
-### Animation initialization
+**Caveats:** avoid unnecessary imperative DOM updates.
 
-Use `onMount` and `onCleanup` for browser resources.
+### Astro
 
-### Caveats
+**Installation:** copy static components or install the package for shared source/API usage.
 
-Keep reactive reads inside Solid expressions and avoid unnecessary imperative DOM updates.
+**Component usage:** static markup can remain in `.astro`; interactive components should be islands.
 
-## Astro
+**Styling:** use Astro styles, global CSS, or Tailwind.
 
-### Installation
+**Initialization:** use a client-side script or interactive island.
 
-Copy static components directly or install the package for shared source/API usage.
+**Caveats:** Astro defaults to server-rendered HTML, so browser APIs belong in client code.
 
-### Component usage
+### Additional JS framework recipes
 
-Static animation markup can remain in an `.astro` file. Interactive components should be isolated into an island.
+- **Next.js:** use client boundaries for interactive components; never read `window` or `document` during server rendering.
+- **Nuxt:** use Vue lifecycle hooks and client-only boundaries when browser APIs are required.
+- **SvelteKit:** use `onMount` for browser-only initialization.
+- **Preact:** use React-compatible hooks/JSX, but verify third-party React dependency compatibility.
+- **Lit:** account for Shadow DOM style boundaries and use Lit lifecycle methods.
+- **Alpine.js:** use Alpine directives for state and event wiring; keep complex keyframes in CSS.
+- **Qwik:** use signals and event boundaries; don't assume a traditional hydration pass.
 
-### Styling
+## CSS Systems
 
-Use Astro component styles, global CSS, or Tailwind.
+### Tailwind
 
-### Animation initialization
+**Installation:** add Tailwind normally; keep ANIMATION component CSS/keyframes where utility classes become unwieldy.
 
-Run browser initialization in a client-side script or interactive island.
+**Component usage:** use utilities for layout and state while preserving semantic ANIMATION states.
 
-### Caveats
+**Styling:** use Tailwind utilities for composition and dedicated CSS for complex motion.
 
-Astro defaults to server-rendered HTML. Do not assume browser APIs exist while the page is being rendered.
+**Initialization:** JavaScript behavior remains framework/lifecycle dependent.
 
-## Preact
-
-Use the React-style recipe with Preact hooks and JSX. Keep DOM work in effects and import the same CSS classes used by the source component.
-
-**Caveat:** verify any third-party React dependency used by a component before relying on Preact compatibility.
-
-## Lit / Web Components
-
-### Installation
-
-Use the component source as a custom element or adapt its markup into a Lit component.
-
-### Component usage
-
-```ts
-@customElement('animated-button')
-export class AnimatedButton extends LitElement {
-  render() {
-    return html`<button @click=${this.toggle}>Animate</button>`;
-  }
-}
-```
-
-### Styling
-
-Use Lit `static styles` for local styles. Shared global keyframes may need to be explicitly adopted or duplicated depending on the shadow-DOM strategy.
-
-### Animation initialization
-
-Use `connectedCallback`, `firstUpdated`, or reactive Lit lifecycle methods as appropriate.
-
-### Caveats
-
-Shadow DOM changes CSS scoping. Global ANIMATION selectors may not cross the shadow boundary.
-
-## Alpine.js
-
-### Installation
-
-Load Alpine and the ANIMATION CSS.
-
-### Component usage
-
-```html
-<button x-data="{ active: false }" :class="{ 'is-active': active }" @click="active = !active">
-  Animate
-</button>
-```
-
-### Styling
-
-Keep complex keyframes in a stylesheet; use Alpine for state and event wiring.
-
-### Animation initialization
-
-Alpine directives initialize behavior automatically after Alpine starts.
-
-### Caveats
-
-Avoid mixing multiple state systems for the same component unless there is a clear boundary.
-
-## Qwik
-
-Use Qwik event handlers and signals for interaction state. Keep browser-only animation setup inside the appropriate client event/lifecycle boundary.
-
-**Caveat:** Qwik's resumability means initialization should not assume a traditional hydration pass.
-
-## CSS systems
-
-### Tailwind CSS
-
-Use Tailwind for layout and state utilities. Keep complicated keyframes in dedicated CSS when that improves maintainability.
+**Caveats:** avoid competing transitions or transforms on the same property.
 
 ### Sass / SCSS
 
-Import ANIMATION component styles into the application stylesheet and use Sass variables/mixins only around the integration layer.
+Import ANIMATION component styles into the Sass entrypoint. Use Sass variables and mixins around the integration layer rather than rewriting component behavior.
+
+**Caveat:** preserve keyframe names and cascade order when composing styles.
 
 ### CSS Modules
 
-Map source class names through the module import rather than depending on global selectors. Shared keyframes should be exported or defined in a global layer when required.
+Map component class names through module imports. Shared keyframes should live in a global layer when required.
+
+**Caveat:** don't assume global selectors exist when CSS Modules hashes class names.
 
 ### Bootstrap
 
-Use Bootstrap for grid, spacing, and base controls; use ANIMATION for motion and interaction states. Avoid stacking competing transition rules on the same property.
+Use Bootstrap for layout, spacing, and base controls; use ANIMATION for motion and interaction states.
 
-### UnoCSS
+**Caveat:** avoid stacking competing Bootstrap and ANIMATION transitions on the same property.
 
-Map ANIMATION's semantic states to UnoCSS utilities. Keep non-trivial keyframes in a CSS layer when generating them dynamically would be fragile.
+## Backend / Full-stack Recipes
 
-## Server-rendered ecosystems
+These are **integration recipes**, not backend implementations of ANIMATION. The server renders or serves the HTML/CSS/JavaScript; ANIMATION runs in the browser.
 
-The same web components can be used with server-rendered applications because the browser ultimately receives HTML, CSS, and JavaScript.
+### Python — Flask
 
-### Python / Flask
+**Installation:** serve ANIMATION assets from `static/` or your frontend build.
 
-**Installation:** add the ANIMATION assets to `static/` or serve them through your frontend build.
-
-**Usage:** render component HTML from Jinja templates.
+**Component usage:** render component HTML from Jinja templates.
 
 **Styling:** link component CSS from the static asset directory.
 
-**Initialization:** load the component JavaScript after the markup or with `defer`.
+**Initialization:** load component JavaScript after markup or with `defer`.
 
-**Caveat:** Flask does not provide client-side lifecycle management; all interaction lifecycle belongs to browser JavaScript.
+**Caveat:** browser lifecycle belongs to client-side JavaScript, not Flask.
 
-### Python / Django
+### Python — Django
 
-Use Django templates for markup and staticfiles for ANIMATION CSS/JS. Initialize behavior after the DOM is ready.
+**Installation:** use Django staticfiles for ANIMATION assets.
 
-**Caveat:** keep static asset paths compatible with `collectstatic` and avoid assuming development-server URLs in production.
+**Component usage:** render component markup in Django templates.
 
-### PHP / Laravel
+**Styling:** serve CSS through `collectstatic`.
 
-Use Blade for markup and Vite/public assets for component CSS/JS.
+**Initialization:** load/defer browser JavaScript after the DOM is available.
 
-**Caveat:** server rendering does not replace browser initialization; keep interactive code client-side.
+**Caveat:** don't rely on development-server asset URLs in production.
 
-### Ruby / Rails
+### PHP — Laravel
 
-Use ERB for markup and the application's asset pipeline for CSS/JS.
+**Installation:** use Vite/public assets for ANIMATION CSS/JS.
 
-**Caveat:** make sure animation assets survive the production asset fingerprinting process.
+**Component usage:** render markup with Blade.
 
-### Java / Spring
+**Styling:** import component CSS through the Laravel asset pipeline.
 
-Use Thymeleaf or another view engine for markup and static resources for CSS/JS.
+**Initialization:** initialize in browser code after the relevant markup exists.
 
-**Caveat:** server-side templates should not execute browser-only animation code.
+**Caveat:** server rendering does not replace browser initialization.
 
-### C# / ASP.NET
+### Ruby — Rails
 
-Use Razor views/components for markup and the normal static asset pipeline for CSS/JS.
+**Installation:** use the Rails asset pipeline/build system.
 
-**Caveat:** keep DOM APIs on the browser side and respect CSP requirements.
+**Component usage:** render component markup through ERB.
+
+**Styling:** include component CSS in the application stylesheet.
+
+**Initialization:** load browser behavior through the application's JS entrypoint.
+
+**Caveat:** ensure production asset fingerprinting includes animation assets.
+
+### Java — Spring
+
+**Installation:** serve component assets from Spring static resources.
+
+**Component usage:** render markup with Thymeleaf or another view engine.
+
+**Styling:** reference component CSS from static resources.
+
+**Initialization:** initialize browser behavior after rendering.
+
+**Caveat:** server templates must not execute browser-only APIs.
+
+### C# — ASP.NET
+
+**Installation:** place ANIMATION assets in the application's static web root or frontend build.
+
+**Component usage:** render through Razor views/components.
+
+**Styling:** use the normal static asset pipeline.
+
+**Initialization:** load browser scripts after the markup.
+
+**Caveat:** keep DOM APIs client-side and account for CSP policies.
 
 ### Go
 
-Use `html/template` for markup and serve component CSS/JS as static assets.
+**Installation:** serve component assets as static files.
 
-**Caveat:** avoid generating unsafe HTML; animation behavior should remain progressive enhancement.
+**Component usage:** render markup with `html/template`.
 
-## Rust / WebAssembly
+**Styling:** link component CSS from the static asset path.
 
-Use the ANIMATION HTML/CSS layer directly and connect WASM to the DOM only where application logic needs it.
+**Initialization:** defer browser JavaScript until the markup is available.
 
-**Caveats:**
+**Caveat:** keep generated HTML safe; animation should remain progressive enhancement.
 
-- Keep the animation itself in CSS/Web Animations where possible.
-- Avoid moving simple visual effects into WASM unnecessarily.
-- Ensure DOM operations run in the browser environment.
+### Rust / WASM
 
-## Native and cross-platform ecosystems
+**Installation:** keep the ANIMATION HTML/CSS layer and add WASM only for application logic that benefits from it.
 
-Flutter, React Native/Expo, Swift/iOS, and Kotlin/Android cannot consume DOM components directly. For these platforms, this documentation is a **motion-pattern recipe**, not a claim of binary component compatibility.
+**Component usage:** connect WASM to DOM elements when required.
 
-### Flutter / Dart
+**Styling:** keep visual effects in CSS/Web Animations where practical.
 
-Recreate the interaction using Flutter's animation controllers, implicit animations, or slivers. Preserve the timing, easing, gesture, and reduced-motion concepts from the ANIMATION reference.
+**Initialization:** initialize WASM in the browser environment.
 
-### React Native / Expo
+**Caveats:** don't move simple visual effects into WASM unnecessarily and don't perform browser DOM operations outside the browser runtime.
 
-Translate the component structure into native views and use the platform's animation system. Web-only CSS selectors and DOM APIs do not apply.
+## Native motion recipes
 
-### Swift / iOS
+Flutter/Dart, React Native/Expo, Swift/iOS, and Kotlin/Android **cannot consume ANIMATION DOM components directly**. These recipes translate the motion concept into the platform's native animation system.
 
-Translate the motion using SwiftUI animations or UIKit/Core Animation. Prefer platform-native accessibility and reduced-motion settings.
+- **Flutter/Dart:** use animation controllers, implicit animations, or slivers.
+- **React Native/Expo:** use native views and the platform animation system; web CSS selectors do not apply.
+- **Swift/iOS:** use SwiftUI animations or UIKit/Core Animation.
+- **Kotlin/Android:** use Jetpack Compose animation APIs or Android animation primitives.
 
-### Kotlin / Android
+Preserve timing, easing, gesture behavior, state transitions, accessibility, and reduced-motion behavior rather than attempting to reproduce DOM internals.
 
-Translate the motion using Jetpack Compose animation APIs or Android animation primitives. Respect system animator-duration settings.
-
-## Framework-agnostic initialization checklist
+## Accessibility and production checklist
 
 Before shipping an integration:
 
-- [ ] Component markup renders without JavaScript.
-- [ ] CSS loads without framework-specific selector conflicts.
+- [ ] Component markup has a usable non-JavaScript baseline.
+- [ ] Styling does not create selector or transition conflicts.
 - [ ] Browser-only initialization runs at the correct lifecycle point.
-- [ ] Event listeners and observers are cleaned up.
+- [ ] Listeners, observers, and animation handles are cleaned up.
 - [ ] SSR/hydration does not access browser APIs during render.
 - [ ] Keyboard interaction matches pointer interaction.
 - [ ] `prefers-reduced-motion` has a useful fallback.
 - [ ] Focus remains visible.
-- [ ] Animation does not communicate state through motion alone.
-- [ ] The integration does not introduce duplicate transitions or competing transforms.
+- [ ] Animation is not the only way state is communicated.
+- [ ] Production asset pipelines include component CSS/JS.
+- [ ] CSP, bundling, and cache behavior are compatible with the integration.
 
 ## Choosing a recipe
 
-If your application is primarily web-based, start with the closest framework recipe and keep the ANIMATION component's HTML/CSS contract intact. If your target is a native platform, use the native recipes as motion design guidance rather than attempting to emulate the DOM.
+For a web application, start with the closest framework recipe and preserve the component's HTML/CSS contract. For server-rendered applications, use the backend recipe to serve the same browser assets. For native platforms, use the native recipe as motion-design guidance rather than attempting to consume the DOM component directly.
