@@ -30,7 +30,8 @@ For a project-level `.npmrc`:
 
 The package targets Node.js **18+**. GitHub Packages releases use semantic version tags (`vMAJOR.MINOR.PATCH`), and the tag must match the version in `package.json`.
 
-> **Current release:** `v1.0.1`
+> **Stable release:** `v1.0.1`  
+> **Next release prepared:** `v1.1.0`
 
 ## Release process
 
@@ -38,9 +39,10 @@ Releases are validated and published through GitHub Actions:
 
 1. Update `package.json` to the intended semantic version.
 2. Run `npm test` and `npm run pack:check`.
-3. Commit the version change.
-4. Create a matching tag such as `v1.1.0`.
-5. GitHub Actions validates the tag and package, publishes the new version to GitHub Packages, and creates the GitHub Release when the release does not already exist.
+3. Run the browser suite with `npm run test:browser` when Playwright is installed.
+4. Commit the version change.
+5. Create a matching tag such as `v1.1.0`.
+6. GitHub Actions validates the tag and package, publishes the new version to GitHub Packages, and creates the GitHub Release when the release does not already exist.
 
 The release workflow is [`release.yml`](.github/workflows/release.yml). Package publishing is [`publish-package.yml`](.github/workflows/publish-package.yml).
 
@@ -63,7 +65,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library now includes **29 reusable effects and UI patterns**:
+The library now includes **33 reusable effects and UI patterns**:
 
 - Magnetic Button
 - Tilt Card
@@ -94,6 +96,10 @@ The library now includes **29 reusable effects and UI patterns**:
 - Loading
 - Scroll Reveal
 - Cursor Highlight
+- Command Palette
+- Progress Bar
+- Skeleton
+- Segmented Control
 
 ## Features
 
@@ -114,6 +120,7 @@ The library now includes **29 reusable effects and UI patterns**:
 - Automated release workflow
 - Static quality checks
 - Automated browser smoke tests
+- Accessibility regression checks
 - Zero-build static frontend
 
 ## Local development
@@ -121,16 +128,17 @@ The library now includes **29 reusable effects and UI patterns**:
 ```bash
 git clone https://github.com/TEJAS-MK2/ANIMATION.git
 cd ANIMATION
+npm install
 npm test
 npm run pack:check
-python3 -m http.server 4173
+npm run test:browser
 ```
 
-The browser test suite uses Playwright in GitHub Actions and checks core pages, the documentation, the registry, templates, downloads, mobile rendering, and every component source page.
+The browser test suite uses Playwright in GitHub Actions and checks core pages, documentation, the registry, templates, downloads, mobile rendering, accessibility of new controls, reduced-motion behavior, and every component source page.
 
 ## Accessibility
 
-Motion is treated as enhancement, not a requirement. The project respects `prefers-reduced-motion`, keeps interactive controls keyboard-friendly, and provides static fallbacks. See [`docs/accessibility.md`](docs/accessibility.md).
+Motion is treated as enhancement, not a requirement. The project respects `prefers-reduced-motion`, keeps interactive controls keyboard-friendly, uses semantic states for controls such as progress and segmented selection, and provides static fallbacks. See [`docs/accessibility.md`](docs/accessibility.md).
 
 ## Quality checks
 
@@ -143,6 +151,7 @@ GitHub Actions checks release-critical project health, including:
 - Package contents
 - Release/tag version consistency
 - Browser smoke tests
+- Accessibility regression checks
 
 A release is only considered ready when its validation steps pass.
 
@@ -179,7 +188,7 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Automated quality checks
 - [x] Automated browser smoke tests
 - [x] Accessibility guidance
-- [x] 29-component library
+- [x] 33-component library
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
 
@@ -188,7 +197,7 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [ ] Add framework-specific recipes for the new UI primitives
 - [ ] Add visual regression testing
 - [ ] Expand advanced component APIs
-- [ ] Prepare the `v1.1.0` release
+- [ ] Publish `v1.1.0`
 
 ## License
 
