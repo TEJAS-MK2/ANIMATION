@@ -4,7 +4,20 @@ All notable changes to ANIMATION are documented here.
 
 ## [Unreleased]
 
-- Continue improving component examples, documentation, accessibility, and automated validation.
+- Continue expanding practical UI primitives and framework recipes.
+
+## [1.1.0]
+
+- Expanded the component library from 29 to 33 components.
+- Added Command Palette.
+- Added Progress Bar with accessible progress semantics.
+- Added Skeleton loading placeholder with reduced-motion support.
+- Added Segmented Control with `aria-pressed` state management.
+- Expanded browser smoke tests to cover all 33 component pages.
+- Added interactive accessibility checks for new controls.
+- Added reduced-motion regression checks for animated loading components.
+- Expanded the component reference to all 33 components.
+- Prepared the package metadata for the `v1.1.0` release.
 
 ## [1.0.1]
 
