@@ -6,11 +6,13 @@ A free, open-source collection of web animations, UI components, and complete st
 
 ## Live website
 
-**[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
+**[Open ANIMATION](https://tejas-mk2.github.io/ANIMATION/)**
 
 ## Documentation
 
 **[Open the documentation site](https://tejas-mk2.github.io/ANIMATION/docs/)**
+
+The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance and framework references.
 
 ## GitHub Packages
 
@@ -26,23 +28,34 @@ For a project-level `.npmrc`:
 @tejas-mk2:registry=https://npm.pkg.github.com
 ```
 
-The package uses Node.js **18+**. Package publishing is restricted to semantic version tags (`vMAJOR.MINOR.PATCH`) and the tag must exactly match the version in `package.json`.
+The package targets Node.js **18+**. GitHub Packages releases use semantic version tags (`vMAJOR.MINOR.PATCH`), and the tag must match the version in `package.json`.
+
+> **Current release:** `v1.0.1`
 
 ## Release process
 
-Releases are automated through GitHub Actions:
+Releases are validated and published through GitHub Actions:
 
 1. Update `package.json` to the intended semantic version.
 2. Run `npm test` and `npm run pack:check`.
 3. Commit the version change.
-4. Push a matching tag such as `v1.0.1`.
-5. GitHub Actions validates the release, publishes the package to GitHub Packages, creates the GitHub Release, and attaches a source archive.
+4. Create a matching tag such as `v1.1.0`.
+5. GitHub Actions validates the tag and package, publishes the new version to GitHub Packages, and creates the GitHub Release when the release does not already exist.
 
 The release workflow is [`release.yml`](.github/workflows/release.yml). Package publishing is [`publish-package.yml`](.github/workflows/publish-package.yml).
 
 ## Templates
 
-ANIMATION includes six complete, ready-to-customize static website starters: Creative Portfolio, Modern SaaS, Developer Docs, Creative Agency, Dashboard, and Startup Landing.
+ANIMATION includes six complete, ready-to-customize static website starters:
+
+- Creative Portfolio
+- Modern SaaS
+- Developer Docs
+- Creative Agency
+- Dashboard
+- Startup Landing
+
+Browse them from [`templates/`](templates/).
 
 ## Component registry
 
@@ -50,7 +63,28 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library currently includes 20 reusable effects and UI patterns, including Magnetic Button, Tilt Card, Text Reveal, Spotlight Card, Aurora Background, Scramble Text, Glow Button, Animated Underline, Depth Card, Flip Card, Typewriter, Gradient Text, Letter Wave, Grid Pulse, Particle Field, Mesh Gradient, Ripple Button, Border Beam, Elastic Card, and Count Up.
+The library currently includes **20 reusable effects and UI patterns**:
+
+- Magnetic Button
+- Tilt Card
+- Text Reveal
+- Spotlight Card
+- Aurora Background
+- Scramble Text
+- Glow Button
+- Animated Underline
+- Depth Card
+- Flip Card
+- Typewriter
+- Gradient Text
+- Letter Wave
+- Grid Pulse
+- Particle Field
+- Mesh Gradient
+- Ripple Button
+- Border Beam
+- Elastic Card
+- Count Up
 
 ## Features
 
@@ -81,9 +115,20 @@ npm test
 npm run pack:check
 ```
 
+Because the project is a zero-build static frontend, you can also open the site with a simple static HTTP server during development.
+
 ## Quality checks
 
-Every change is checked by GitHub Actions for JavaScript syntax, repository integrity, local references, required metadata, package contents, and other release-blocking issues.
+GitHub Actions checks release-critical project health, including:
+
+- JavaScript syntax
+- Repository structure and required files
+- Local `href` and `src` references
+- Package metadata
+- Package contents
+- Release/tag version consistency
+
+A release is only considered ready when its validation steps pass.
 
 ## Contributing
 
@@ -116,7 +161,14 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] GitHub Packages publishing workflow
 - [x] Automated quality checks
 - [x] Automated GitHub Release workflow
-- [ ] First official `v1.0.1` GitHub Release/tag
+- [x] `v1.0.1` release
+
+### Next
+
+- [ ] Expand component documentation pages
+- [ ] Add broader automated browser and accessibility testing
+- [ ] Improve framework examples and usage recipes
+- [ ] Continue expanding the component library
 
 ## License
 
