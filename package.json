@@ -1,6 +1,6 @@
 {
   "name": "@tejas-mk2/animation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable web animations, UI components, and starter templates.",
   "keywords": ["animation", "web-animation", "ui", "components", "css", "javascript", "frontend"],
   "license": "MIT",
