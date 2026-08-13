@@ -12,7 +12,7 @@ A free, open-source collection of web animations, UI components, and complete st
 
 **[Open the documentation site](https://tejas-mk2.github.io/ANIMATION/docs/)**
 
-The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance and framework references.
+The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance and framework references. The component reference is available at [`docs/components/`](docs/components/).
 
 ## GitHub Packages
 
@@ -63,7 +63,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library currently includes **20 reusable effects and UI patterns**:
+The library now includes **28 reusable effects and UI patterns**:
 
 - Magnetic Button
 - Tilt Card
@@ -85,6 +85,15 @@ The library currently includes **20 reusable effects and UI patterns**:
 - Border Beam
 - Elastic Card
 - Count Up
+- Modal
+- Toast
+- Dropdown
+- Tooltip
+- Tabs
+- Accordion
+- Loading
+- Scroll Reveal
+- Cursor Highlight
 
 ## Features
 
@@ -103,7 +112,8 @@ The library currently includes **20 reusable effects and UI patterns**:
 - GitHub Pages deployment
 - GitHub Packages distribution
 - Automated release workflow
-- Automated quality checks
+- Static quality checks
+- Automated browser smoke tests
 - Zero-build static frontend
 
 ## Local development
@@ -113,9 +123,14 @@ git clone https://github.com/TEJAS-MK2/ANIMATION.git
 cd ANIMATION
 npm test
 npm run pack:check
+python3 -m http.server 4173
 ```
 
-Because the project is a zero-build static frontend, you can also open the site with a simple static HTTP server during development.
+The browser test suite uses Playwright in GitHub Actions and checks core pages, the documentation, the registry, templates, downloads, mobile rendering, and every component source page.
+
+## Accessibility
+
+Motion is treated as enhancement, not a requirement. The project respects `prefers-reduced-motion`, keeps interactive controls keyboard-friendly, and provides static fallbacks. See [`docs/accessibility.md`](docs/accessibility.md).
 
 ## Quality checks
 
@@ -127,6 +142,7 @@ GitHub Actions checks release-critical project health, including:
 - Package metadata
 - Package contents
 - Release/tag version consistency
+- Browser smoke tests
 
 A release is only considered ready when its validation steps pass.
 
@@ -157,18 +173,22 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Searchable component registry
 - [x] Community submission workflow
 - [x] Documentation site
+- [x] Component reference index
 - [x] GitHub Pages website
 - [x] GitHub Packages publishing workflow
 - [x] Automated quality checks
+- [x] Automated browser smoke tests
+- [x] Accessibility guidance
+- [x] 28-component library
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
 
 ### Next
 
-- [ ] Expand component documentation pages
-- [ ] Add broader automated browser and accessibility testing
-- [ ] Improve framework examples and usage recipes
-- [ ] Continue expanding the component library
+- [ ] Add framework-specific recipes for the new UI primitives
+- [ ] Add visual regression testing
+- [ ] Expand advanced component APIs
+- [ ] Prepare the `v1.1.0` release
 
 ## License
 
