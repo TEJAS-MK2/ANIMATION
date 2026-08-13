@@ -8,9 +8,9 @@
   "type": "module",
   "files": ["components", "frameworks", "templates", "registry", "package", "component.html", "index.html", "styles.css", "app.js", "human-ui.css", "README.md", "LICENSE"],
   "exports": {
-    ".": "./package/index.js",
-    "./package": "./package/index.js",
-    "./runtime": "./package/runtime.js"
+    ".": {"types": "./package/index.d.ts", "import": "./package/index.js"},
+    "./package": {"types": "./package/index.d.ts", "import": "./package/index.js"},
+    "./runtime": {"types": "./package/runtime.d.ts", "import": "./package/runtime.js"}
   },
   "types": "./package/index.d.ts",
   "scripts": {"test": "node --check app.js && node --check registry/app.js && node --check docs/app.js && node --check frameworks/component-snippets.js && node --check package/index.js && node --check package/runtime.js", "pack:check": "npm pack --dry-run", "test:browser": "playwright test", "test:visual": "node scripts/visual-check.mjs"},
