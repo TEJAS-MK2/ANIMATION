@@ -8,15 +8,15 @@ A free, open-source collection of web animations, UI components, and complete st
 
 **[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
 
-## npm package
+## GitHub Packages
 
-ANIMATION includes an npm package manifest for distributing the reusable library through npm.
+ANIMATION is configured as a scoped npm package for **GitHub Packages**.
 
 ```bash
-npm install @tejas-mk2/animation
+npm install @tejas-mk2/animation --registry=https://npm.pkg.github.com
 ```
 
-The package is dependency-light and ships the reusable components, framework references, templates, registry, and static library assets. See `package.json` for package metadata and the supported Node.js version.
+The package is published to the GitHub npm registry at `https://npm.pkg.github.com`. Releases are automated through GitHub Actions when a `v*.*.*` tag is pushed. The workflow validates the package and JavaScript before publishing with the repository's `GITHUB_TOKEN`.
 
 ## Documentation
 
@@ -49,7 +49,7 @@ The library currently includes 20 reusable effects and UI patterns, including Ma
 - Six complete website templates
 - Community submission workflows
 - GitHub Pages deployment
-- npm package manifest
+- GitHub Packages distribution
 - Zero-build static frontend
 
 ## Local development
@@ -57,14 +57,15 @@ The library currently includes 20 reusable effects and UI patterns, including Ma
 ```bash
 git clone https://github.com/TEJAS-MK2/ANIMATION.git
 cd ANIMATION
-npm install
 npm test
 npm run pack:check
 ```
 
-## npm publishing
+## Package publishing
 
-The package manifest is ready for npm distribution. Publishing requires an npm account with permission to publish the `@tejas-mk2` scope and an `NPM_TOKEN` repository secret. Release automation should publish only from version tags after the package passes its validation and packaging checks.
+Publishing is automated by [`.github/workflows/publish-package.yml`](.github/workflows/publish-package.yml). Push a semantic version tag such as `v1.0.0` after reviewing the package. The workflow uses GitHub's `GITHUB_TOKEN` with `packages: write` permission, validates the package, runs the JavaScript checks, previews the package contents, and then publishes to GitHub Packages.
+
+GitHub's npm registry requires scoped package names; this project uses `@tejas-mk2/animation`. citeturn0search2turn0search7
 
 ## Contributing
 
@@ -94,8 +95,8 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Community submission workflow
 - [x] Documentation site
 - [x] GitHub Pages website
-- [x] npm package manifest
-- [ ] Publish package to npm registry
+- [x] GitHub Packages publishing workflow
+- [ ] First published GitHub Package release
 
 ## License
 
