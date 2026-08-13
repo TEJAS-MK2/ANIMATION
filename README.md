@@ -20,7 +20,7 @@ ANIMATION is distributed as the scoped package **`@tejas-mk2/animation`** throug
 
 ### Current stable release
 
-**`@tejas-mk2/animation@1.1.0`**
+**`@tejas-mk2/animation@1.2.0`**
 
 ```bash
 npm install @tejas-mk2/animation --registry=https://npm.pkg.github.com
@@ -195,7 +195,9 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
 - [x] `v1.1.0` release
+- [x] `v1.2.0` release
 - [x] `@tejas-mk2/animation@1.1.0` published to GitHub Packages
+- [x] `@tejas-mk2/animation@1.2.0` published to GitHub Packages
 - [x] Framework integration recipes
 - [x] Visual regression guard
 - [x] Package installation and authentication guide
