@@ -33,7 +33,7 @@ test('documentation links back to the library', async ({ page }) => {
 
 test('component reference exposes all components', async ({ page }) => {
   await page.goto('http://127.0.0.1:4173/docs/components/');
-  await expect(page.getByRole('heading', { name: /28 components, documented/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /29 components, documented/i })).toBeVisible();
 });
 
 test('mobile page remains usable', async ({ page }) => {
