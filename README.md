@@ -10,7 +10,7 @@ A free, open-source collection of web animations, UI components, and complete st
 
 ## Templates
 
-ANIMATION now includes complete, ready-to-customize static website starters:
+ANIMATION includes complete, ready-to-customize static website starters:
 
 | Template | Purpose | Link |
 | --- | --- | --- |
@@ -19,6 +19,10 @@ ANIMATION now includes complete, ready-to-customize static website starters:
 | Developer Docs | Documentation and developer portals | [`templates/docs/`](templates/docs/) |
 
 Browse the collection directly from the live site or [`templates/`](templates/).
+
+## Component registry
+
+The full collection is available through the searchable [`registry/`](registry/) page. Search by component name or description and filter by interaction type: Hover, Text, Cards, or Backgrounds.
 
 ## Component library
 
@@ -50,6 +54,7 @@ Each component is intended to be understandable, customizable, and usable withou
 ## Features
 
 - Interactive component gallery
+- Dedicated searchable component registry
 - Search and category filtering
 - Responsive previews
 - Dedicated component pages
@@ -73,12 +78,13 @@ ANIMATION/
 ├── styles.css
 ├── human-ui.css
 ├── components/
-│   ├── component-shell.js
-│   ├── component-shell.css
-│   └── component examples
 ├── frameworks/
 │   ├── component-snippets.js
 │   └── README.md
+├── registry/
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
 ├── templates/
 │   ├── index.html
 │   ├── portfolio/
@@ -130,12 +136,12 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Modern SaaS template
 - [x] Developer Docs template
 - [x] Public template browser
+- [x] Searchable component registry
 - [x] GitHub Pages website
-- [ ] Wire framework snippets directly into the playground
+- [ ] Wire framework snippets directly into every playground tab
 - [ ] More advanced customization controls
 - [ ] Downloadable component source packages
 - [ ] Larger template collection
-- [ ] Searchable component registry
 - [ ] Community submissions
 - [ ] Full documentation site
 - [ ] npm distribution
