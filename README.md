@@ -46,6 +46,8 @@ Added reusable website sections, deliberately excluding login/authentication and
 - Contact
 - Footer
 - Dashboard
+- Stats
+- Logo cloud
 
 ### Advanced components
 
@@ -113,6 +115,11 @@ See [`docs/integrations.md`](docs/integrations.md) for the complete integration 
 
 - Redesigned template browser with the same visual language as the main site
 - Expanded component and template documentation
+- Dedicated advanced-component documentation standard
+- Configurable GitHub Activity and Contribution Graph data contracts
+- Deterministic visual-baseline policy
+- Framework starter-project fixture matrix
+- Usage-driven release strategy
 - Improved navigation between the library, templates, and docs
 - Responsive behavior improvements
 - Reduced-motion considerations
@@ -161,7 +168,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 - Complete website templates
 - Copy-paste website blocks
 - Animated dock navigation
-- GitHub activity and contribution graph patterns
+- GitHub activity and contribution graph patterns with configurable data
 - Resizable sidebar
 - Interactive media timeline
 - Motion navigation patterns
@@ -242,16 +249,20 @@ The v1.3.0 release passed the release and package-publication workflows before p
 - [x] Animated background collection
 - [x] Unified template browser theme
 - [x] Canonical multi-language/framework integration architecture
+- [x] Advanced component documentation contract
+- [x] Configurable activity/contribution data contract
+- [x] Visual baseline policy
+- [x] Framework starter fixture matrix
+- [x] Usage-driven release strategy
+- [x] Additional Stats and Logo Cloud blocks
 
-### Next
+### Next release hardening
 
-- [ ] Add dedicated previews and documentation for every advanced component
-- [ ] Connect GitHub activity/graph components to configurable data sources
-- [ ] Add full pixel-baseline visual snapshots
-- [ ] Expand advanced component APIs
-- [ ] Continue growing the Blocks collection
-- [ ] Expand integration examples with tested framework starter projects
-- [ ] Plan the next package release based on real-world usage
+- [ ] Add deterministic pixel-baseline snapshots to CI for every advanced component
+- [ ] Turn the starter fixture matrix into executable projects and run them in CI
+- [ ] Expand runtime APIs for advanced components while preserving backward compatibility
+- [ ] Continue growing the Blocks collection based on usage and feedback
+- [ ] Use real-world usage signals to select the next package release scope
 
 ## License
 
