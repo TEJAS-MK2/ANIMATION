@@ -4,6 +4,8 @@ All notable changes to ANIMATION are documented here.
 
 ## [Unreleased]
 
+- Improve advanced component APIs and TypeScript examples.
+- Expand visual testing toward committed pixel baselines.
 - Continue expanding practical UI primitives and framework recipes.
 
 ## [1.1.0]
@@ -17,7 +19,13 @@ All notable changes to ANIMATION are documented here.
 - Added interactive accessibility checks for new controls.
 - Added reduced-motion regression checks for animated loading components.
 - Expanded the component reference to all 33 components.
-- Prepared the package metadata for the `v1.1.0` release.
+- Added Vanilla JS, React, TypeScript, Tailwind CSS, and Next.js integration recipes.
+- Added package installation, authentication, verification, and troubleshooting documentation.
+- Added representative visual regression guards for core pages.
+- Added bug-report and feature-request issue templates.
+- Added a pull-request quality checklist.
+- Made the release workflow idempotent when a GitHub Release already exists.
+- Published `@tejas-mk2/animation@1.1.0` to GitHub Packages.
 
 ## [1.0.1]
 
