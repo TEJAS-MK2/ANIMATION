@@ -1,4 +1,4 @@
-export const version = '1.2.0';
+export const version = '1.3.0';
 
 export const components = {
   magneticButton: 'components/magnetic-button.html',
@@ -37,7 +37,9 @@ export const components = {
   popover: 'components/popover.html',
   pagination: 'components/pagination.html',
   breadcrumbs: 'components/breadcrumbs.html',
-  drawer: 'components/drawer.html'
+  drawer: 'components/drawer.html',
+  animatedDock: 'components/dock.html',
+  githubActivity: 'components/github-activity.html'
 };
 
 export function getComponentPath(name) {
