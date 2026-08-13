@@ -19,5 +19,5 @@
   "repository": {"type": "git", "url": "git+https://github.com/TEJAS-MK2/ANIMATION.git"},
   "bugs": {"url": "https://github.com/TEJAS-MK2/ANIMATION/issues"},
   "homepage": "https://tejas-mk2.github.io/ANIMATION/",
-  "publishConfig": {"registry": "https://npm.pkg.github.com"}
+  "publishConfig": {"registry": "https://npm.pkg.github.com" }
 }
