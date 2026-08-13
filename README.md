@@ -8,19 +8,37 @@ A free, open-source collection of web animations, UI components, and complete st
 
 **[Open ANIMATION on GitHub Pages](https://tejas-mk2.github.io/ANIMATION/)**
 
+## Documentation
+
+**[Open the documentation site](https://tejas-mk2.github.io/ANIMATION/docs/)**
+
 ## GitHub Packages
 
-ANIMATION is configured as a scoped npm package for **GitHub Packages**.
+ANIMATION is distributed as the scoped package **`@tejas-mk2/animation`** through GitHub Packages.
 
 ```bash
 npm install @tejas-mk2/animation --registry=https://npm.pkg.github.com
 ```
 
-The package is published to the GitHub npm registry at `https://npm.pkg.github.com`. Releases are automated through GitHub Actions when a `v*.*.*` tag is pushed. The workflow validates the package and JavaScript before publishing with the repository's `GITHUB_TOKEN`.
+For a project-level `.npmrc`:
 
-## Documentation
+```ini
+@tejas-mk2:registry=https://npm.pkg.github.com
+```
 
-**[Open the documentation site](https://tejas-mk2.github.io/ANIMATION/docs/)**
+The package uses Node.js **18+**. Package publishing is restricted to semantic version tags (`vMAJOR.MINOR.PATCH`) and the tag must exactly match the version in `package.json`.
+
+## Release process
+
+Releases are automated through GitHub Actions:
+
+1. Update `package.json` to the intended semantic version.
+2. Run `npm test` and `npm run pack:check`.
+3. Commit the version change.
+4. Push a matching tag such as `v1.0.1`.
+5. GitHub Actions validates the release, publishes the package to GitHub Packages, creates the GitHub Release, and attaches a source archive.
+
+The release workflow is [`release.yml`](.github/workflows/release.yml). Package publishing is [`publish-package.yml`](.github/workflows/publish-package.yml).
 
 ## Templates
 
@@ -50,6 +68,8 @@ The library currently includes 20 reusable effects and UI patterns, including Ma
 - Community submission workflows
 - GitHub Pages deployment
 - GitHub Packages distribution
+- Automated release workflow
+- Automated quality checks
 - Zero-build static frontend
 
 ## Local development
@@ -61,11 +81,9 @@ npm test
 npm run pack:check
 ```
 
-## Package publishing
+## Quality checks
 
-Publishing is automated by [`.github/workflows/publish-package.yml`](.github/workflows/publish-package.yml). Push a semantic version tag such as `v1.0.0` after reviewing the package. The workflow uses GitHub's `GITHUB_TOKEN` with `packages: write` permission, validates the package, runs the JavaScript checks, previews the package contents, and then publishes to GitHub Packages.
-
-GitHub's npm registry requires scoped package names; this project uses `@tejas-mk2/animation`. citeturn0search2turn0search7
+Every change is checked by GitHub Actions for JavaScript syntax, repository integrity, local references, required metadata, package contents, and other release-blocking issues.
 
 ## Contributing
 
@@ -96,7 +114,9 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Documentation site
 - [x] GitHub Pages website
 - [x] GitHub Packages publishing workflow
-- [ ] First published GitHub Package release
+- [x] Automated quality checks
+- [x] Automated GitHub Release workflow
+- [ ] First official `v1.0.1` GitHub Release/tag
 
 ## License
 
