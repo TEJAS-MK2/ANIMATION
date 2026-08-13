@@ -1,0 +1,15 @@
+{
+  "name": "@tejas-mk2/animation",
+  "version": "1.0.0",
+  "description": "Reusable web animations, UI components, and starter templates.",
+  "keywords": ["animation", "web-animation", "ui", "components", "css", "javascript", "frontend"],
+  "license": "MIT",
+  "author": "ANIMATION contributors",
+  "type": "module",
+  "files": ["components", "frameworks", "templates", "registry", "component.html", "index.html", "styles.css", "app.js", "human-ui.css", "README.md", "LICENSE"],
+  "scripts": {"test": "node --check app.js && node --check frameworks/component-snippets.js", "pack:check": "npm pack --dry-run"},
+  "engines": {"node": ">=18"},
+  "repository": {"type": "git", "url": "https://github.com/TEJAS-MK2/ANIMATION.git"},
+  "bugs": {"url": "https://github.com/TEJAS-MK2/ANIMATION/issues"},
+  "homepage": "https://tejas-mk2.github.io/ANIMATION/"
+}
