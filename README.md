@@ -18,6 +18,10 @@ The library and documentation are connected: use the library to discover and pre
 
 ANIMATION is distributed as the scoped package **`@tejas-mk2/animation`** through GitHub Packages.
 
+### Current stable release
+
+**`@tejas-mk2/animation@1.1.0`**
+
 ```bash
 npm install @tejas-mk2/animation --registry=https://npm.pkg.github.com
 ```
@@ -30,19 +34,17 @@ For a project-level `.npmrc`:
 
 The package targets Node.js **18+**. GitHub Packages releases use semantic version tags (`vMAJOR.MINOR.PATCH`), and the tag must match the version in `package.json`.
 
-> **Stable release:** `v1.0.1`  
-> **Next release prepared:** `v1.1.0`
-
 ## Release process
 
 Releases are validated and published through GitHub Actions:
 
 1. Update `package.json` to the intended semantic version.
 2. Run `npm test` and `npm run pack:check`.
-3. Run the browser suite with `npm run test:browser` when Playwright is installed.
+3. Run the browser suite with `npm run test:browser`.
 4. Commit the version change.
-5. Create a matching tag such as `v1.1.0`.
-6. GitHub Actions validates the tag and package, publishes the new version to GitHub Packages, and creates the GitHub Release when the release does not already exist.
+5. Create a matching tag such as `v1.2.0`.
+6. GitHub Actions validates the tag and package and publishes the new version to GitHub Packages.
+7. Publish the corresponding GitHub Release when required.
 
 The release workflow is [`release.yml`](.github/workflows/release.yml). Package publishing is [`publish-package.yml`](.github/workflows/publish-package.yml).
 
@@ -65,7 +67,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library now includes **33 reusable effects and UI patterns**:
+The library includes **33 reusable effects and UI patterns**:
 
 - Magnetic Button
 - Tilt Card
@@ -191,13 +193,15 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] 33-component library
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
+- [x] `v1.1.0` release
+- [x] `@tejas-mk2/animation@1.1.0` published to GitHub Packages
 
 ### Next
 
 - [ ] Add framework-specific recipes for the new UI primitives
 - [ ] Add visual regression testing
 - [ ] Expand advanced component APIs
-- [ ] Publish `v1.1.0`
+- [ ] Expand the component library
 
 ## License
 
