@@ -63,7 +63,7 @@ The full collection is available through the searchable [`registry/`](registry/)
 
 ## Component library
 
-The library now includes **28 reusable effects and UI patterns**:
+The library now includes **29 reusable effects and UI patterns**:
 
 - Magnetic Button
 - Tilt Card
@@ -179,7 +179,7 @@ Participation in this project is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_COND
 - [x] Automated quality checks
 - [x] Automated browser smoke tests
 - [x] Accessibility guidance
-- [x] 28-component library
+- [x] 29-component library
 - [x] Automated GitHub Release workflow
 - [x] `v1.0.1` release
 
