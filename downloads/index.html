@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Downloads — ANIMATION</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+.download-page{max-width:1050px;margin:auto;padding:55px 22px}.back{color:#aaa;text-decoration:none}.back:hover{color:#fff}.ey{color:var(--accent);letter-spacing:.16em;font-size:11px}.download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px}.download-card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#09090b}.download-card h2{margin:0 0 7px}.download-card p{color:#888;margin:0 0 18px}.actions{display:flex;flex-wrap:wrap;gap:8px}.actions button{border:1px solid var(--line);background:#17171b;color:#ddd;border-radius:9px;padding:9px 12px;cursor:pointer}.actions button:hover{background:#24242a;color:#fff}.actions button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.note{margin-top:25px;color:#888;font-size:13px}@media(max-width:700px){.download-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main class="download-page">
+<a class="back" href="../index.html">← Back to library</a>
+<p class="ey">SOURCE PACKAGES</p><h1>Download components.</h1><p>Download the registered source for any component. Files are generated locally in your browser; nothing is uploaded.</p>
+<div class="download-grid" id="grid"></div><p class="note">Each download contains the selected implementation source. Use the component viewer for the live preview and customization controls.</p>
+</main>
+<script src="../frameworks/component-snippets.js"></script>
+<script>
+const grid=document.getElementById('grid');
+const pretty=k=>k.split('-').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
+const download=(name,text,ext)=>{const blob=new Blob([text],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name+'.'+ext;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+Object.entries(ANIMATION_SNIPPETS).forEach(([key,s])=>{const card=document.createElement('article');card.className='download-card';card.innerHTML='<h2>'+pretty(key)+'</h2><p>HTML, CSS, JavaScript, React and Tailwind source.</p><div class="actions"><button data-type="html">HTML</button><button data-type="css">CSS</button><button data-type="js">JavaScript</button><button data-type="react">React</button><button data-type="tailwind">Tailwind</button></div>';card.querySelectorAll('button').forEach(btn=>btn.onclick=()=>download(key,s[btn.dataset.type],btn.dataset.type==='js'?'js':btn.dataset.type));grid.appendChild(card)});
+</script></body></html>
