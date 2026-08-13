@@ -1,8 +1,8 @@
 # ANIMATION
 
-A free, open-source collection of web animations, UI components, website blocks, and complete starter templates.
+A free, open-source, web-first collection of animations, UI components, website blocks, integration recipes, and complete starter templates.
 
-**Discover → Preview → Copy → Customize → Ship.**
+**Discover → Preview → Copy → Customize → Integrate → Ship.**
 
 ## Live website
 
@@ -12,7 +12,7 @@ A free, open-source collection of web animations, UI components, website blocks,
 
 **[Open the documentation site](https://tejas-mk2.github.io/ANIMATION/docs/)**
 
-The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance and framework references.
+The library and documentation are connected: use the library to discover and preview components, then use the docs for implementation guidance, accessibility, and framework integration.
 
 ## Current release — v1.3.0
 
@@ -65,6 +65,50 @@ Added reusable website sections, deliberately excluding login/authentication and
 - Dot Matrix
 - Wave Grid
 
+### Integration system
+
+ANIMATION now has a structured multi-language and framework integration system.
+
+```text
+ANIMATION
+│
+├── Core Web
+│   ├── HTML
+│   ├── CSS
+│   └── JavaScript
+│
+├── JS Frameworks
+│   ├── React
+│   ├── Vue
+│   ├── Svelte
+│   ├── Angular
+│   ├── Solid
+│   └── Astro
+│
+├── CSS Systems
+│   ├── Tailwind
+│   ├── Sass
+│   ├── CSS Modules
+│   └── Bootstrap
+│
+└── Backend / Full-stack Recipes
+    ├── Python
+    ├── PHP
+    ├── Ruby
+    ├── Java
+    ├── C#
+    ├── Go
+    └── Rust/WASM
+```
+
+Additional recipes cover Next.js, Nuxt, SvelteKit, Preact, Lit, Alpine.js, Qwik, UnoCSS, and native motion translations for Flutter, React Native, Swift, and Kotlin.
+
+Every integration recipe follows:
+
+**Installation → Component Usage → Styling → Animation Initialization → Framework Caveats → Accessibility/Production Notes**
+
+See [`docs/integrations.md`](docs/integrations.md) for the complete integration system and [`docs/recipes.md`](docs/recipes.md) for the framework recipe hub.
+
 ### Website and developer experience
 
 - Redesigned template browser with the same visual language as the main site
@@ -100,18 +144,6 @@ The reusable Blocks collection is available from [`blocks/`](blocks/) or [`block
 
 The full collection is available through the searchable [`registry/`](registry/) page.
 
-## Framework recipes
-
-Integration guidance is available for:
-
-- Vanilla JavaScript
-- React
-- TypeScript
-- Tailwind CSS
-- Next.js
-
-See [`docs/recipes.md`](docs/recipes.md).
-
 ## Features
 
 - Interactive component gallery
@@ -119,6 +151,7 @@ See [`docs/recipes.md`](docs/recipes.md).
 - Responsive previews
 - Component-specific customization controls
 - HTML, CSS, JavaScript, React, and Tailwind references
+- Multi-language and framework integration recipes
 - One-click code copying
 - Browser-local source downloads
 - Responsive mobile navigation
@@ -165,13 +198,11 @@ GitHub Actions validates release-critical project health, including JavaScript s
 
 The v1.3.0 release passed the release and package-publication workflows before publication.
 
-## Contributing
+## Community and contribution guidelines
 
-Contributions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting components or templates.
-
-## Security
-
-Please report security vulnerabilities responsibly instead of opening a public issue. See [`SECURITY.md`](SECURITY.md).
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — community standards and enforcement.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — component, block, template, framework recipe, testing, and pull-request guidance.
+- [`SECURITY.md`](SECURITY.md) — responsible vulnerability reporting and security scope.
 
 ## Roadmap
 
@@ -210,6 +241,7 @@ Please report security vulnerabilities responsibly instead of opening a public i
 - [x] Motion Navbar
 - [x] Animated background collection
 - [x] Unified template browser theme
+- [x] Canonical multi-language/framework integration architecture
 
 ### Next
 
@@ -218,6 +250,7 @@ Please report security vulnerabilities responsibly instead of opening a public i
 - [ ] Add full pixel-baseline visual snapshots
 - [ ] Expand advanced component APIs
 - [ ] Continue growing the Blocks collection
+- [ ] Expand integration examples with tested framework starter projects
 - [ ] Plan the next package release based on real-world usage
 
 ## License
