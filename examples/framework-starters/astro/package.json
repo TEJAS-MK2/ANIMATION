@@ -1,0 +1,1 @@
+{"name":"animation-astro-fixture","private":true,"type":"module","scripts":{"build":"astro build"},"dependencies":{"@tejas-mk2/animation":"file:../../../","astro":"latest"}}
