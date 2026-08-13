@@ -24,6 +24,12 @@ jobs:
         run: |
           find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './.git/*' -not -path './node_modules/*' -print0 | while IFS= read -r -d '' file; do node --check "$file"; done
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run package and runtime tests
+        run: npm test
+
       - name: Run repository quality checks
         run: node scripts/quality-check.mjs
 
