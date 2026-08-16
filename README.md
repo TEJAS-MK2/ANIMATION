@@ -79,6 +79,18 @@ For the static library, open the component browser and choose a component to pre
 
 For package-based usage, see `package.json` and the documentation for the current package exports.
 
+## Hackatime
+
+ANIMATION includes a safe helper for setting up Hackatime on your development machine. The setup token is intentionally **not stored in this public repository**.
+
+Run from the repository root:
+
+```bash
+bash scripts/setup-hackatime.sh YOUR_HACKATIME_SETUP_TOKEN
+```
+
+The helper runs the official Hack Club setup installer and passes the token only at runtime. Never commit a real setup token, API key, or other credential to the repository.
+
 ## Development
 
 Install dependencies and run the project's checks with the package scripts defined in `package.json`.
